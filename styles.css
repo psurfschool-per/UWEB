@@ -2046,38 +2046,6 @@ body {
     }
 }
 
-/* Process Cards Hover Effects */
-.process-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15) !important;
-}
-
-.process-card:hover .process-icon {
-    transform: scale(1.1);
-}
-
-.flow-step:hover div {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
-
-/* Responsive Process Grid */
-@media (max-width: 768px) {
-    .process-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-    }
-    
-    .flow-steps {
-        flex-direction: column !important;
-    }
-    
-    .flow-steps > div:not(.flow-step) {
-        transform: rotate(90deg);
-        margin: 0.5rem 0 !important;
-    }
-}
-
 /* Technologies Section */
 .tech-categories {
     display: grid;
