@@ -1,0 +1,36 @@
+{
+  "name": "uweb-sitio",
+  "version": "1.0.0",
+  "description": "Sitio web corporativo para UWEB - Empresa de desarrollo web en Barranca, Lima, Perú",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Proyecto estático - no requiere build'",
+    "test": "echo 'Tests no configurados aún'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tu-usuario/uweb-sitio.git"
+  },
+  "keywords": [
+    "desarrollo-web",
+    "diseño-web",
+    "peru",
+    "barranca",
+    "lima",
+    "sitio-corporativo",
+    "responsive",
+    "html5",
+    "css3",
+    "javascript"
+  ],
+  "author": "UWEB Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tu-usuario/uweb-sitio/issues"
+  },
+  "homepage": "https://tu-usuario.github.io/uweb-sitio/",
+  "devDependencies": {},
+  "dependencies": {}
+}

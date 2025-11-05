@@ -1,0 +1,18 @@
+🎯 COPIA Y PEGA ESTA RUTA EXACTA EN GITHUB DESKTOP:
+
+C:\Users\web\Desktop\UWEB
+
+📋 PASOS:
+1. Abre GitHub Desktop
+2. File → Add Local Repository
+3. En "Local path" pega: C:\Users\web\Desktop\UWEB
+4. Clic en "Add Repository"
+
+✅ VERIFICACIÓN:
+Si es la carpeta correcta, verás archivos como:
+- index.html
+- servicios.html
+- precios.html
+- contacto.html
+- styles.css
+- script.js

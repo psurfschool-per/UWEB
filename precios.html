@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UWEB - Planes y precios de desarrollo web. Elige el plan perfecto para tu negocio.">
+    <title>Precios - UWEB</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html"><h1>UWEB</h1></a>
+            </div>
+            <ul class="nav__menu" id="nav-menu">
+                <li class="nav__item">
+                    <a href="index.html" class="nav__link">Inicio</a>
+                </li>
+                <li class="nav__item">
+                    <a href="servicios.html" class="nav__link">Servicios</a>
+                </li>
+                <li class="nav__item">
+                    <a href="portafolio.html" class="nav__link">Portafolio</a>
+                </li>
+                <li class="nav__item">
+                    <a href="precios.html" class="nav__link nav__link--active">Precios</a>
+                </li>
+                <li class="nav__item">
+                    <a href="contacto.html" class="nav__link">Contacto</a>
+                </li>
+            </ul>
+            <div class="nav__toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Pricing Hero -->
+    <section class="pricing-hero">
+        <div class="container">
+            <div class="pricing-hero__content">
+                <h1 class="pricing-hero__title">Planes y Precios</h1>
+                <p class="pricing-hero__description">
+                    Elige el plan perfecto para tu negocio. Todos nuestros planes incluyen soporte y garantía de calidad.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <!-- Currency Selector -->
+            <div class="currency-selector">
+                <label for="currency-select" class="currency-selector__label">Moneda:</label>
+                <select id="currency-select" class="currency-selector__select">
+                    <option value="PEN" selected>PEN (S/)</option>
+                    <option value="USD">USD ($)</option>
+                </select>
+                <div class="currency-selector__rate" id="exchange-rate">
+                    <span class="rate-loading">Cargando tasa de cambio...</span>
+                </div>
+            </div>
+            
+            <!-- Exchange Rate Info -->
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <p style="margin: 0; color: var(--text-light); font-size: 0.8rem; opacity: 0.8;">
+                    Tasa actualizada automáticamente • 
+                    <a href="https://www.google.com/finance/quote/USD-PEN" target="_blank" rel="noopener" style="color: var(--text-light); text-decoration: none; border-bottom: 1px dotted var(--text-light);">
+                        Verificar en Google Finance
+                    </a>
+                </p>
+            </div>
+            <div class="pricing__grid">
+                <!-- Plan OnePage/Landing -->
+                <div class="pricing-card">
+                    <div class="pricing-card__header">
+                        <h3 class="pricing-card__name">OnePage / Landing</h3>
+                        <div class="pricing-card__price">
+                            <span class="pricing-card__currency">S/</span>
+                            <span class="pricing-card__amount" data-price-pen="999">999</span>
+                            <span class="pricing-card__period">/proyecto</span>
+                        </div>
+                        <p class="pricing-card__description">Perfecto para pequeñas empresas y proyectos personales</p>
+                    </div>
+                    <div class="pricing-card__body">
+                        <ul class="pricing-card__features">
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Diseño web responsivo</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Página única optimizada</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Formulario de contacto</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Optimización básica SEO</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Integración con redes sociales</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Pago único</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Entrega en 7 días</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>3 días de revisiones básicas</span>
+                            </li>
+                        </ul>
+                        <a href="index.html#contacto" class="btn btn--outline btn--full">Elegir Plan</a>
+                    </div>
+                </div>
+
+                <!-- Plan Multipage -->
+                <div class="pricing-card pricing-card--featured">
+                    <div class="pricing-card__badge">Más Popular</div>
+                    <div class="pricing-card__header">
+                        <h3 class="pricing-card__name">Multipage</h3>
+                        <div class="pricing-card__price">
+                            <span class="pricing-card__currency">S/</span>
+                            <span class="pricing-card__amount" data-price-pen="2699">2,699</span>
+                            <span class="pricing-card__period">/proyecto</span>
+                        </div>
+                        <p class="pricing-card__description">Ideal para empresas en crecimiento</p>
+                    </div>
+                    <div class="pricing-card__body">
+                        <ul class="pricing-card__features">
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>De 5 a 7 páginas</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Diseño web responsivo</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>CMS básico incluido</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Panel de administración</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Optimización SEO avanzada</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Integración con Google Analytics</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Formularios de contacto</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Entrega en 14 días</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>7 días mejoras incluidas</span>
+                            </li>
+                        </ul>
+                        <a href="index.html#contacto" class="btn btn--primary btn--full">Elegir Plan</a>
+                    </div>
+                </div>
+
+                <!-- Plan Personalizado -->
+                <div class="pricing-card">
+                    <div class="pricing-card__header">
+                        <h3 class="pricing-card__name">Personalizado</h3>
+                        <div class="pricing-card__price">
+                            <span class="pricing-card__currency">S/</span>
+                            <span class="pricing-card__amount" data-price-pen="9000">9,000+</span>
+                            <span class="pricing-card__period">/proyecto</span>
+                        </div>
+                        <p class="pricing-card__description">Solución completa para grandes empresas</p>
+                    </div>
+                    <div class="pricing-card__body">
+                        <ul class="pricing-card__features">
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Web institucionales/corporativas</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Marketplace completo</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Aplicaciones web avanzadas</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Integraciones n8n</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Desarrollo a la medida</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>API personalizada</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>MVP o demo funcional</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Consultoría estratégica</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Soporte especializado</span>
+                            </li>
+                            <li class="pricing-card__feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Cotización personalizada</span>
+                            </li>
+                        </ul>
+                        <a href="index.html#contacto" class="btn btn--outline btn--full">Solicitar Cotización</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="pricing-faq">
+                <h2 class="section__title">Preguntas Frecuentes</h2>
+                <div class="faq__grid">
+                    <div class="faq__item">
+                        <h3 class="faq__question">¿Incluyen hosting y dominio?</h3>
+                        <p class="faq__answer">No, nuestros planes no incluyen dominio ni hosting. Se cotiza según el requerimiento del cliente (hosting tradicional o VPS).</p>
+                    </div>
+                    <div class="faq__item">
+                        <h3 class="faq__question">¿Cómo son los pagos?</h3>
+                        <p class="faq__answer">30% inicial al iniciar, 20% al entregar la primera versión preliminar, y 50% restante al desplegar el proyecto.</p>
+                    </div>
+                    <div class="faq__item">
+                        <h3 class="faq__question">¿Quién paga el mantenimiento?</h3>
+                        <p class="faq__answer">El costo operativo y mantenimiento lo paga el cliente. Ofrecemos soporte especializado por separado.</p>
+                    </div>
+                    <div class="faq__item">
+                        <h3 class="faq__question">¿Qué incluye el proceso de desarrollo?</h3>
+                        <p class="faq__answer">Nuestro proceso incluye: Estudio, Diseño, Construcción y Despliegue. Cada etapa está planificada para garantizar calidad.</p>
+                    </div>
+                    <div class="faq__item">
+                        <h3 class="faq__question">¿Puedo solicitar cambios durante el desarrollo?</h3>
+                        <p class="faq__answer">Sí, incluimos días de revisiones básicas en cada plan. Cambios adicionales se cotizan por separado.</p>
+                    </div>
+                    <div class="faq__item">
+                        <h3 class="faq__question">¿Qué pasa si necesito algo más específico?</h3>
+                        <p class="faq__answer">Para proyectos personalizados (marketplace, web apps, n8n), creamos una cotización específica según tus requerimientos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Info Section -->
+    <section style="padding: 60px 0; background: var(--bg-light);">
+        <div class="container">
+            <h2 class="section__title">Modalidad de Pagos</h2>
+            <div class="services__grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-top: 2rem;">
+                <div class="service__card">
+                    <div class="service__icon">💳</div>
+                    <h3 class="service__title">30% Inicial</h3>
+                    <p class="service__description">
+                        Al iniciar el proyecto para comenzar con el desarrollo
+                    </p>
+                </div>
+                <div class="service__card">
+                    <div class="service__icon">🔄</div>
+                    <h3 class="service__title">20% Intermedio</h3>
+                    <p class="service__description">
+                        Al entregar la primera versión preliminar para revisión
+                    </p>
+                </div>
+                <div class="service__card">
+                    <div class="service__icon">🚀</div>
+                    <h3 class="service__title">50% Final</h3>
+                    <p class="service__description">
+                        Al desplegar y lanzar el proyecto al público
+                    </p>
+                </div>
+            </div>
+            
+            <div style="background: white; padding: 2rem; border-radius: 12px; margin-top: 3rem; text-align: center;">
+                <h3 style="color: var(--text-color); margin-bottom: 1rem;">⚠️ Importante</h3>
+                <p style="color: var(--text-light); margin-bottom: 0;">
+                    <strong>Hosting y Dominio NO incluidos.</strong> Se cotiza según requerimiento del cliente (hosting tradicional o VPS). 
+                    El costo operativo y mantenimiento lo paga el cliente.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="pricing-cta">
+        <div class="container">
+            <div class="pricing-cta__content">
+                <h2 class="pricing-cta__title">¿No encuentras lo que buscas?</h2>
+                <p class="pricing-cta__description">
+                    Contáctanos y crearemos un plan personalizado adaptado a tus necesidades específicas.
+                </p>
+                <a href="index.html#contacto" class="btn btn--primary btn--large">Contactar Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">UWEB</h3>
+                    <p class="footer__description">
+                        Desarrollo web profesional. Soluciones digitales a medida.
+                    </p>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Enlaces</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="portafolio.html">Portafolio</a></li>
+                        <li><a href="precios.html">Precios</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Políticas</h4>
+                    <ul class="footer__links">
+                        <li><a href="politicas/privacidad.html">Política de Privacidad</a></li>
+                        <li><a href="politicas/terminos.html">Términos de Servicio</a></li>
+                        <li><a href="politicas/devoluciones.html">Política de Devoluciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Contacto</h4>
+                    <ul class="footer__contact">
+                        <li>📧 info@uweb.com</li>
+                        <li>📱 +51 987 654 321</li>
+                        <li>📍 Barranca, Lima, Perú</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 UWEB. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

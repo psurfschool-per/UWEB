@@ -1,0 +1,22 @@
+COPIA Y PEGA ESTE MENSAJE EN GITHUB DESKTOP:
+
+=== SUMMARY (Campo obligatorio) ===
+✨ Sitio web completo con metodología 4 etapas
+
+=== DESCRIPTION (Campo opcional) ===
+🎯 Cambios principales:
+- Servicios simplificados a 4 etapas claras (Estudio, Diseño, Construcción, Despliegue)
+- Sistema de cambio automático USD/PEN con API real
+- Ubicación actualizada: Barranca, Lima, Perú (UTC-5)
+- Diseño profesional sin emojis, iconos SVG
+- Formularios avanzados con validación en tiempo real
+- Responsive design optimizado para móviles
+- Proceso visual con tarjetas profesionales
+- Documentación completa del proyecto
+
+🛠️ Archivos principales actualizados:
+- index.html, servicios.html, precios.html, contacto.html
+- styles.css, script.js
+- README.md con documentación completa
+
+🚀 Listo para producción

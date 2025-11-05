@@ -1,0 +1,58 @@
+UWEB - INFORMACIÓN DE SERVICIOS Y PRECIOS
+=====================================================
+
+SERVICIOS QUE OFRECEMOS:
+------------------------
+• Estudio
+• Diseño
+• Construcción
+• Despliegue
+
+IMPORTANTE SOBRE HOSTING Y DOMINIO:
+----------------------------------
+- Nuestros planes NO incluyen dominio ni hosting
+- Se cotiza según el requerimiento del cliente
+- Opciones disponibles: hosting tradicional o VPS
+- El costo operativo y mantenimiento lo paga el cliente
+
+PLANES Y PRECIOS:
+================
+
+1. PÁGINA ONEPAGE / LANDING PAGE
+   ------------------------------
+   Precio: Desde S/. 999 (pago único)
+   Entrega: 7 días + 3 días de revisiones básicas
+   Total: 10 días
+
+2. MULTIPAGE
+   ----------
+   Precio: Desde S/. 2,699
+   Páginas: De 5 a 7 páginas
+   Incluye: Módulo básico de administración de contenido (CMS)
+   Entrega: 14 días total
+   - 7 días: versión funcional
+   - 7 días: mejoras e implementaciones
+
+3. DESARROLLOS PERSONALIZADOS
+   ---------------------------
+   Tipos:
+   - Web institucionales o corporativas a la medida
+   - Marketplace
+   - Web apps
+   - n8n y otros desarrollos similares
+   
+   Precio: Se calcula según requerimiento
+   Desde: S/. 9,000 por MVP o demo funcional
+
+MODALIDAD DE PAGOS:
+==================
+- 30% inicial al iniciar proyecto
+- 20% al entregar la primera versión preliminar
+- 50% restante al desplegar y lanzar el proyecto al público
+
+NOTAS ADICIONALES:
+=================
+- Todos los precios están en Soles Peruanos (PEN)
+- Los tiempos de entrega pueden variar según complejidad
+- Se incluyen revisiones básicas en todos los planes
+- Soporte post-lanzamiento disponible por separado

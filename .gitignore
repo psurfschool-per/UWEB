@@ -1,0 +1,77 @@
+# Archivos de desarrollo y testing
+test-*.html
+test-*.ps1
+*-test.*
+*.test.*
+
+# Archivos de servidor local
+server*.ps1
+simple-server.ps1
+start-server.ps1
+
+# Archivos de análisis y documentación temporal
+ANALISIS_*.md
+CORRECCIONES_*.md
+RESUMEN_*.md
+
+# Archivos de configuración del IDE
+.vscode/
+.kiro/
+*.code-workspace
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs y archivos temporales
+*.log
+*.tmp
+*.temp
+*.cache
+
+# Archivos de backup
+*.bak
+*.backup
+*~
+
+# Node.js (si se usa en el futuro)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Archivos de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos de build (si se usan en el futuro)
+dist/
+build/
+.next/
+.nuxt/
+.cache/
+
+# Archivos de editor
+*.swp
+*.swo
+*~
+
+# Archivos de Windows
+ehthumbs.db
+Desktop.ini
+
+# Archivos de macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# Archivos de Linux
+*~
+.nfs*

@@ -1,0 +1,239 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "E-commerce Moda Peruana",
+      "category": "ecommerce",
+      "image": "assets/images/portfolio/project1.jpg",
+      "gallery": [
+        "assets/images/portfolio/project1-1.jpg",
+        "assets/images/portfolio/project1-2.jpg",
+        "assets/images/portfolio/project1-3.jpg"
+      ],
+      "technologies": ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
+      "duration": "6 semanas",
+      "description": "Tienda online completa con carrito de compras, pasarela de pagos integrada y panel de administración. Diseño responsive optimizado para móviles con sistema de inventario en tiempo real.",
+      "features": [
+        "Carrito de compras avanzado",
+        "Pasarela de pagos segura",
+        "Panel de administración",
+        "Sistema de inventario",
+        "Diseño responsive",
+        "Optimización SEO"
+      ],
+      "liveUrl": "https://modaperuana-demo.com",
+      "client": "Moda Peruana SAC",
+      "year": 2024,
+      "testimonial": {
+        "text": "UWEB transformó completamente nuestra presencia online. Las ventas aumentaron un 300% en los primeros 3 meses.",
+        "author": "María González",
+        "position": "Gerente General, Moda Peruana SAC"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Sistema de Gestión Restaurante",
+      "category": "app",
+      "image": "assets/images/portfolio/project2.jpg",
+      "gallery": [
+        "assets/images/portfolio/project2-1.jpg",
+        "assets/images/portfolio/project2-2.jpg"
+      ],
+      "technologies": ["React", "Node.js", "MongoDB", "Express"],
+      "duration": "8 semanas",
+      "description": "Aplicación web completa para gestión de restaurante con sistema de pedidos, inventario, facturación y reportes en tiempo real.",
+      "features": [
+        "Sistema de pedidos digital",
+        "Gestión de inventario",
+        "Facturación automática",
+        "Reportes y analytics",
+        "Interface para meseros",
+        "Panel administrativo"
+      ],
+      "liveUrl": "https://restaurant-demo.com",
+      "client": "Restaurante El Sabor",
+      "year": 2024,
+      "testimonial": {
+        "text": "La eficiencia de nuestro restaurante mejoró significativamente. Ahora podemos manejar el doble de pedidos sin problemas.",
+        "author": "Carlos Mendoza",
+        "position": "Propietario, Restaurante El Sabor"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Portal Corporativo Inmobiliaria",
+      "category": "web",
+      "image": "assets/images/portfolio/project3.jpg",
+      "gallery": [
+        "assets/images/portfolio/project3-1.jpg",
+        "assets/images/portfolio/project3-2.jpg",
+        "assets/images/portfolio/project3-3.jpg"
+      ],
+      "technologies": ["HTML5", "CSS3", "JavaScript", "PHP", "Bootstrap"],
+      "duration": "4 semanas",
+      "description": "Sitio web corporativo moderno para inmobiliaria con catálogo de propiedades, sistema de búsqueda avanzada y formularios de contacto integrados.",
+      "features": [
+        "Catálogo de propiedades",
+        "Búsqueda avanzada con filtros",
+        "Galería de imágenes interactiva",
+        "Formularios de contacto",
+        "Mapa de ubicaciones",
+        "Panel de administración"
+      ],
+      "liveUrl": "https://inmobiliaria-demo.com",
+      "client": "Inmobiliaria Premium",
+      "year": 2023,
+      "testimonial": {
+        "text": "Nuestro nuevo sitio web nos ha ayudado a generar más leads calificados. El diseño es profesional y muy fácil de usar.",
+        "author": "Ana Rodríguez",
+        "position": "Directora de Marketing, Inmobiliaria Premium"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Plataforma E-learning",
+      "category": "app",
+      "image": "assets/images/portfolio/project4.jpg",
+      "gallery": [
+        "assets/images/portfolio/project4-1.jpg",
+        "assets/images/portfolio/project4-2.jpg"
+      ],
+      "technologies": ["Vue.js", "Laravel", "MySQL", "WebRTC"],
+      "duration": "12 semanas",
+      "description": "Plataforma completa de educación online con videoconferencias, sistema de evaluaciones, progreso de estudiantes y certificaciones.",
+      "features": [
+        "Videoconferencias en vivo",
+        "Sistema de evaluaciones",
+        "Seguimiento de progreso",
+        "Certificaciones digitales",
+        "Foros de discusión",
+        "Biblioteca de recursos"
+      ],
+      "liveUrl": "https://elearning-demo.com",
+      "client": "Instituto Educativo Digital",
+      "year": 2024,
+      "testimonial": {
+        "text": "La plataforma superó nuestras expectativas. Nuestros estudiantes están más comprometidos que nunca.",
+        "author": "Dr. Roberto Silva",
+        "position": "Director Académico, Instituto Educativo Digital"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Tienda Online Artesanías",
+      "category": "ecommerce",
+      "image": "assets/images/portfolio/project5.jpg",
+      "gallery": [
+        "assets/images/portfolio/project5-1.jpg",
+        "assets/images/portfolio/project5-2.jpg"
+      ],
+      "technologies": ["WooCommerce", "WordPress", "PHP", "MySQL"],
+      "duration": "5 semanas",
+      "description": "E-commerce especializado en artesanías peruanas con catálogo visual atractivo, sistema de pagos múltiples y envíos nacionales e internacionales.",
+      "features": [
+        "Catálogo visual optimizado",
+        "Múltiples métodos de pago",
+        "Calculadora de envíos",
+        "Sistema de reseñas",
+        "Programa de fidelización",
+        "Integración con redes sociales"
+      ],
+      "liveUrl": "https://artesanias-demo.com",
+      "client": "Artesanías del Perú",
+      "year": 2023,
+      "testimonial": {
+        "text": "Gracias a UWEB ahora vendemos nuestras artesanías a nivel internacional. El sitio es hermoso y muy funcional.",
+        "author": "Elena Vargas",
+        "position": "Fundadora, Artesanías del Perú"
+      }
+    },
+    {
+      "id": 6,
+      "title": "Portal de Noticias Deportivas",
+      "category": "web",
+      "image": "assets/images/portfolio/project6.jpg",
+      "gallery": [
+        "assets/images/portfolio/project6-1.jpg",
+        "assets/images/portfolio/project6-2.jpg"
+      ],
+      "technologies": ["HTML5", "CSS3", "JavaScript", "CMS Custom"],
+      "duration": "6 semanas",
+      "description": "Portal de noticias deportivas con sistema de gestión de contenido, sección de videos, resultados en vivo y newsletter automático.",
+      "features": [
+        "CMS personalizado",
+        "Sección multimedia",
+        "Resultados en tiempo real",
+        "Newsletter automático",
+        "Comentarios de usuarios",
+        "Optimización móvil"
+      ],
+      "liveUrl": "https://deportes-demo.com",
+      "client": "Deportes Perú Online",
+      "year": 2023,
+      "testimonial": {
+        "text": "El portal ha revolucionado cómo compartimos noticias deportivas. La audiencia creció un 250% desde el lanzamiento.",
+        "author": "Miguel Torres",
+        "position": "Editor Jefe, Deportes Perú Online"
+      }
+    },
+    {
+      "id": 7,
+      "title": "App de Delivery Comida",
+      "category": "app",
+      "image": "assets/images/portfolio/project7.jpg",
+      "gallery": [
+        "assets/images/portfolio/project7-1.jpg",
+        "assets/images/portfolio/project7-2.jpg",
+        "assets/images/portfolio/project7-3.jpg"
+      ],
+      "technologies": ["React Native", "Node.js", "MongoDB", "Socket.io"],
+      "duration": "10 semanas",
+      "description": "Aplicación móvil completa para delivery de comida con tracking en tiempo real, múltiples restaurantes y sistema de calificaciones.",
+      "features": [
+        "Tracking en tiempo real",
+        "Múltiples restaurantes",
+        "Sistema de calificaciones",
+        "Pagos integrados",
+        "Notificaciones push",
+        "Panel para repartidores"
+      ],
+      "liveUrl": "https://delivery-demo.com",
+      "client": "FoodExpress Perú",
+      "year": 2024,
+      "testimonial": {
+        "text": "La app funciona perfectamente. Nuestros clientes están encantados con la facilidad de uso y el tracking en tiempo real.",
+        "author": "Patricia Morales",
+        "position": "CEO, FoodExpress Perú"
+      }
+    },
+    {
+      "id": 8,
+      "title": "Sitio Web Clínica Médica",
+      "category": "web",
+      "image": "assets/images/portfolio/project8.jpg",
+      "gallery": [
+        "assets/images/portfolio/project8-1.jpg",
+        "assets/images/portfolio/project8-2.jpg"
+      ],
+      "technologies": ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
+      "duration": "7 semanas",
+      "description": "Sitio web profesional para clínica médica con sistema de citas online, información de doctores, servicios médicos y blog de salud.",
+      "features": [
+        "Sistema de citas online",
+        "Perfiles de doctores",
+        "Catálogo de servicios",
+        "Blog de salud",
+        "Formulario de contacto",
+        "Certificaciones médicas"
+      ],
+      "liveUrl": "https://clinica-demo.com",
+      "client": "Clínica San Rafael",
+      "year": 2023,
+      "testimonial": {
+        "text": "El sitio web ha modernizado completamente nuestra imagen. Los pacientes ahora pueden agendar citas fácilmente online.",
+        "author": "Dr. Fernando López",
+        "position": "Director Médico, Clínica San Rafael"
+      }
+    }
+  ]
+}

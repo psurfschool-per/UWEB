@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UWEB - Portafolio de proyectos. Conoce nuestros trabajos y casos de éxito.">
+    <title>Portafolio - UWEB</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html"><h1>UWEB</h1></a>
+            </div>
+            <ul class="nav__menu" id="nav-menu">
+                <li class="nav__item">
+                    <a href="index.html" class="nav__link">Inicio</a>
+                </li>
+                <li class="nav__item">
+                    <a href="servicios.html" class="nav__link">Servicios</a>
+                </li>
+                <li class="nav__item">
+                    <a href="portafolio.html" class="nav__link nav__link--active">Portafolio</a>
+                </li>
+                <li class="nav__item">
+                    <a href="precios.html" class="nav__link">Precios</a>
+                </li>
+                <li class="nav__item">
+                    <a href="contacto.html" class="nav__link">Contacto</a>
+                </li>
+            </ul>
+            <div class="nav__toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Portfolio Hero -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-header__title">Nuestro Portafolio</h1>
+            <p class="page-header__description">
+                Descubre algunos de nuestros proyectos más destacados y casos de éxito
+            </p>
+        </div>
+    </section>
+
+    <!-- Portfolio Filters -->
+    <section style="padding: 60px 0 40px; background: var(--bg-light);">
+        <div class="container">
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="web">Sitios Web</button>
+                <button class="filter-btn" data-filter="app">Aplicaciones</button>
+                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section style="padding: 0 0 80px; background: var(--bg-light);">
+        <div class="container">
+            <div class="portfolio-grid" id="portfolio-grid">
+                <!-- Los proyectos se cargarán dinámicamente desde projects.json -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Modal -->
+    <div class="modal" id="portfolio-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div class="modal-body" id="modal-body">
+                <!-- El contenido del modal se cargará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="pricing-cta">
+        <div class="container">
+            <div class="pricing-cta__content">
+                <h2 class="pricing-cta__title">¿Te gusta lo que ves?</h2>
+                <p class="pricing-cta__description">
+                    Trabajemos juntos en tu próximo proyecto. Contáctanos para una consulta gratuita.
+                </p>
+                <a href="contacto.html" class="btn btn--primary btn--large">Iniciar Proyecto</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">UWEB</h3>
+                    <p class="footer__description">
+                        Desarrollo web profesional. Soluciones digitales a medida.
+                    </p>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Enlaces</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="portafolio.html">Portafolio</a></li>
+                        <li><a href="precios.html">Precios</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Políticas</h4>
+                    <ul class="footer__links">
+                        <li><a href="politicas/privacidad.html">Política de Privacidad</a></li>
+                        <li><a href="politicas/terminos.html">Términos de Servicio</a></li>
+                        <li><a href="politicas/devoluciones.html">Política de Devoluciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Contacto</h4>
+                    <ul class="footer__contact">
+                        <li>📧 info@uweb.com</li>
+                        <li>📱 +51 987 654 321</li>
+                        <li>📍 Barranca, Lima, Perú</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 UWEB. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Cargar y mostrar proyectos del portafolio
+        async function loadPortfolio() {
+            try {
+                const response = await fetch('assets/data/projects.json');
+                const data = await response.json();
+                const portfolioGrid = document.getElementById('portfolio-grid');
+                
+                data.projects.forEach(project => {
+                    const projectElement = document.createElement('div');
+                    projectElement.className = `portfolio-item ${project.category}`;
+                    projectElement.innerHTML = `
+                        <div class="portfolio-image">
+                            <img src="${project.image}" alt="${project.title}" onerror="this.style.display='none'; this.parentElement.style.background='var(--bg-light)'; this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-light);\\'>Imagen no disponible</div>';">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-overlay-content">
+                                    <h3>Ver Proyecto</h3>
+                                    <p>Más detalles</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-category">${getCategoryName(project.category)}</div>
+                            <h3 class="portfolio-title">${project.title}</h3>
+                            <p class="portfolio-description">${project.description.substring(0, 100)}...</p>
+                        </div>
+                    `;
+                    
+                    projectElement.addEventListener('click', () => openModal(project));
+                    portfolioGrid.appendChild(projectElement);
+                });
+                
+                // Configurar filtros
+                setupFilters();
+                
+            } catch (error) {
+                console.error('Error loading portfolio:', error);
+                document.getElementById('portfolio-grid').innerHTML = '<p>Error al cargar el portafolio</p>';
+            }
+        }
+        
+        function getCategoryName(category) {
+            const categories = {
+                'web': 'Sitio Web',
+                'app': 'Aplicación',
+                'ecommerce': 'E-commerce'
+            };
+            return categories[category] || category;
+        }
+        
+        function setupFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Actualizar botón activo
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const filter = btn.dataset.filter;
+                    
+                    // Filtrar proyectos
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.classList.contains(filter)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+        
+        function openModal(project) {
+            const modal = document.getElementById('portfolio-modal');
+            const modalBody = document.getElementById('modal-body');
+            
+            modalBody.innerHTML = `
+                <div style="padding: 2rem;">
+                    <div class="portfolio-category" style="margin-bottom: 1rem;">${getCategoryName(project.category)}</div>
+                    <h2 style="margin-bottom: 1rem; color: var(--text-color);">${project.title}</h2>
+                    <div style="margin-bottom: 2rem;">
+                        <img src="${project.image}" alt="${project.title}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none';">
+                    </div>
+                    <p style="margin-bottom: 2rem; color: var(--text-color); line-height: 1.7;">${project.description}</p>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="margin-bottom: 1rem; color: var(--text-color);">Características:</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            ${project.features.map(feature => `<li style="margin-bottom: 0.5rem; color: var(--text-color);"><span style="color: var(--primary-color);">✓</span> ${feature}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="margin-bottom: 1rem; color: var(--text-color);">Tecnologías:</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <p><strong>Duración:</strong> ${project.duration}</p>
+                        <p><strong>Cliente:</strong> ${project.client}</p>
+                        <p><strong>Año:</strong> ${project.year}</p>
+                    </div>
+                    
+                    ${project.testimonial ? `
+                        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                            <p style="font-style: italic; margin-bottom: 1rem; color: var(--text-color);">"${project.testimonial.text}"</p>
+                            <p style="font-weight: 600; color: var(--text-color); margin: 0;">- ${project.testimonial.author}, ${project.testimonial.position}</p>
+                        </div>
+                    ` : ''}
+                    
+                    <div style="text-align: center;">
+                        <a href="${project.liveUrl}" target="_blank" class="btn btn--primary" style="margin-right: 1rem;">Ver Sitio Web</a>
+                        <a href="contacto.html" class="btn btn--outline">Proyecto Similar</a>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+        }
+        
+        // Cerrar modal
+        document.getElementById('modal-close').addEventListener('click', () => {
+            document.getElementById('portfolio-modal').classList.remove('active');
+        });
+        
+        // Cerrar modal al hacer clic fuera
+        document.getElementById('portfolio-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'portfolio-modal') {
+                document.getElementById('portfolio-modal').classList.remove('active');
+            }
+        });
+        
+        // Cargar portafolio al cargar la página
+        document.addEventListener('DOMContentLoaded', loadPortfolio);
+    </script>
+</body>
+</html>
