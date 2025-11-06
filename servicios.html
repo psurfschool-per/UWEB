@@ -3,8 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="UWEB - Servicios de desarrollo web. Conoce todos nuestros servicios profesionales.">
-    <title>Servicios - UWEB</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Servicios de desarrollo web profesional de UWEB: Estudio, Diseño, Construcción y Despliegue. Sitios web, aplicaciones web, e-commerce y más. Metodología probada en Perú.">
+    <meta name="keywords" content="servicios desarrollo web, diseño web, programación web, e-commerce, aplicaciones web, SEO, mantenimiento web, consultoría digital, Perú">
+    <meta name="author" content="UWEB - Desarrollo Web Profesional">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Servicios de Desarrollo Web - UWEB | Metodología Profesional">
+    <meta property="og:description" content="Descubre nuestros servicios de desarrollo web: Estudio, Diseño, Construcción y Despliegue. Metodología probada para crear sitios web exitosos.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uweb.com/servicios.html">
+    <meta property="og:image" content="https://uweb.com/assets/images/og-servicios.jpg">
+    <meta property="og:image:alt" content="Servicios de desarrollo web UWEB">
+    <meta property="og:site_name" content="UWEB">
+    <meta property="og:locale" content="es_PE">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Servicios de Desarrollo Web - UWEB">
+    <meta name="twitter:description" content="Metodología profesional de 4 etapas: Estudio, Diseño, Construcción y Despliegue para crear sitios web exitosos.">
+    <meta name="twitter:image" content="https://uweb.com/assets/images/og-servicios.jpg">
+    
+    <title>Servicios de Desarrollo Web - UWEB | Metodología Profesional</title>
+    <link rel="canonical" href="https://uweb.com/servicios.html">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -518,7 +551,7 @@
                 <div class="footer__section">
                     <h3 class="footer__title">UWEB</h3>
                     <p class="footer__description">
-                        Desarrollo web profesional. Soluciones digitales a medida.
+                        Desarrollo web profesional. Soluciones digitales a medida.s digitales a medida.
                     </p>
                 </div>
                 <div class="footer__section">
@@ -553,6 +586,111 @@
             </div>
         </div>
     </footer>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Servicios de Desarrollo Web UWEB",
+        "description": "Servicios completos de desarrollo web con metodología de 4 etapas: Estudio, Diseño, Construcción y Despliegue",
+        "url": "https://uweb.com/servicios.html",
+        "provider": {
+            "@type": "Organization",
+            "name": "UWEB"
+        },
+        "serviceType": "Web Development",
+        "areaServed": {
+            "@type": "Country",
+            "name": "Peru"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Catálogo de Servicios Web",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Estudio y Análisis",
+                        "description": "Análisis profundo del negocio, mercado y objetivos para crear la estrategia digital perfecta"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Diseño UI/UX",
+                        "description": "Creación de experiencias visuales y de usuario excepcionales que convierten visitantes en clientes"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Desarrollo Web",
+                        "description": "Desarrollo con código limpio, tecnologías modernas y las mejores prácticas del mercado"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Despliegue y Lanzamiento",
+                        "description": "Lanzamiento del proyecto de forma segura, optimizada y lista para alcanzar objetivos de negocio"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Tecnologías de Desarrollo Web",
+        "description": "Tecnologías y herramientas utilizadas por UWEB para desarrollo web",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@type": "SoftwareApplication",
+                    "name": "React",
+                    "applicationCategory": "Frontend Framework"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                    "@type": "SoftwareApplication",
+                    "name": "Node.js",
+                    "applicationCategory": "Backend Runtime"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                    "@type": "SoftwareApplication",
+                    "name": "PHP",
+                    "applicationCategory": "Backend Language"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                    "@type": "SoftwareApplication",
+                    "name": "MongoDB",
+                    "applicationCategory": "Database"
+                }
+            }
+        ]
+    }
+    </script>
 
     <script src="script.js"></script>
 </body>

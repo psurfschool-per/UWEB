@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://uweb.com/sitemap.xml
+
+# Disallow test files and temporary files
+Disallow: /test-*
+Disallow: /*.ps1
+Disallow: /*.md
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /.kiro/
+
+# Allow important directories
+Allow: /assets/
+Allow: /politicas/
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

@@ -3,8 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="UWEB - Planes y precios de desarrollo web. Elige el plan perfecto para tu negocio.">
-    <title>Precios - UWEB</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Precios de desarrollo web UWEB - Planes desde S/999. OnePage, Multipage y proyectos personalizados. Cotización gratuita, pagos flexibles y garantía de calidad en Perú.">
+    <meta name="keywords" content="precios desarrollo web, costo sitio web, cotización web Perú, planes desarrollo web, precio página web, tarifas programación web">
+    <meta name="author" content="UWEB - Desarrollo Web Profesional">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Precios - UWEB | Planes de Desarrollo Web desde S/999">
+    <meta property="og:description" content="Planes transparentes de desarrollo web: OnePage desde S/999, Multipage desde S/2,699. Cotización gratuita y pagos flexibles.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uweb.com/precios.html">
+    <meta property="og:image" content="https://uweb.com/assets/images/og-precios.jpg">
+    <meta property="og:image:alt" content="Planes y precios UWEB">
+    <meta property="og:site_name" content="UWEB">
+    <meta property="og:locale" content="es_PE">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Precios - UWEB | Desarrollo Web desde S/999">
+    <meta name="twitter:description" content="Planes transparentes de desarrollo web con pagos flexibles y garantía de calidad.">
+    <meta name="twitter:image" content="https://uweb.com/assets/images/og-precios.jpg">
+    
+    <title>Precios - UWEB | Planes de Desarrollo Web desde S/999</title>
+    <link rel="canonical" href="https://uweb.com/precios.html">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -366,6 +398,103 @@
             </div>
         </div>
     </footer>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Servicios de Desarrollo Web UWEB",
+        "description": "Planes de desarrollo web profesional con diferentes opciones según las necesidades del cliente",
+        "brand": {
+            "@type": "Brand",
+            "name": "UWEB"
+        },
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Plan OnePage / Landing",
+                "description": "Página única optimizada para pequeñas empresas y proyectos personales",
+                "price": "999",
+                "priceCurrency": "PEN",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2024-01-01",
+                "priceValidUntil": "2024-12-31",
+                "seller": {
+                    "@type": "Organization",
+                    "name": "UWEB"
+                },
+                "itemCondition": "https://schema.org/NewCondition",
+                "category": "Web Development Service"
+            },
+            {
+                "@type": "Offer",
+                "name": "Plan Multipage",
+                "description": "Sitio web corporativo de 5-7 páginas con CMS y panel administrativo",
+                "price": "2699",
+                "priceCurrency": "PEN",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2024-01-01",
+                "priceValidUntil": "2024-12-31",
+                "seller": {
+                    "@type": "Organization",
+                    "name": "UWEB"
+                },
+                "itemCondition": "https://schema.org/NewCondition",
+                "category": "Web Development Service"
+            },
+            {
+                "@type": "Offer",
+                "name": "Plan Personalizado",
+                "description": "Solución completa para grandes empresas con desarrollo a medida",
+                "price": "9000",
+                "priceCurrency": "PEN",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2024-01-01",
+                "priceValidUntil": "2024-12-31",
+                "seller": {
+                    "@type": "Organization",
+                    "name": "UWEB"
+                },
+                "itemCondition": "https://schema.org/NewCondition",
+                "category": "Web Development Service"
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "¿Incluyen hosting y dominio?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, nuestros planes no incluyen dominio ni hosting. Se cotiza según el requerimiento del cliente (hosting tradicional o VPS)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Cómo son los pagos?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "30% inicial al iniciar, 20% al entregar la primera versión preliminar, y 50% restante al desplegar el proyecto."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Quién paga el mantenimiento?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "El costo operativo y mantenimiento lo paga el cliente. Ofrecemos soporte especializado por separado."
+                }
+            }
+        ]
+    }
+    </script>
 
     <script src="script.js"></script>
 </body>

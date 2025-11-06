@@ -3,8 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="UWEB - Contacto. Envíanos tu consulta y te responderemos a la brevedad.">
-    <title>Contacto - UWEB</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Contacta con UWEB para tu proyecto de desarrollo web. Formulario de contacto, información de ubicación en Barranca, Lima y horarios de atención. Respuesta garantizada en 24 horas.">
+    <meta name="keywords" content="contacto UWEB, desarrollo web Perú, cotización web, consulta desarrollo web, Barranca Lima, contacto programador web">
+    <meta name="author" content="UWEB - Desarrollo Web Profesional">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    <meta name="geo.region" content="PE-LIM">
+    <meta name="geo.placename" content="Barranca, Lima, Perú">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Contacto - UWEB | Desarrollo Web Profesional">
+    <meta property="og:description" content="¿Tienes un proyecto en mente? Contáctanos para una consulta gratuita. Desarrollo web profesional en Perú con garantía de calidad.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uweb.com/contacto.html">
+    <meta property="og:image" content="https://uweb.com/assets/images/og-contacto.jpg">
+    <meta property="og:image:alt" content="Formulario de contacto UWEB">
+    <meta property="og:site_name" content="UWEB">
+    <meta property="og:locale" content="es_PE">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contacto - UWEB | Desarrollo Web Profesional">
+    <meta name="twitter:description" content="¿Tienes un proyecto en mente? Contáctanos para una consulta gratuita. Desarrollo web profesional en Perú.">
+    <meta name="twitter:image" content="https://uweb.com/assets/images/og-contacto.jpg">
+    
+    <title>Contacto - UWEB | Desarrollo Web Profesional en Perú</title>
+    <link rel="canonical" href="https://uweb.com/contacto.html">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//maps.googleapis.com">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -284,7 +320,6 @@
                         <li>📧 info@uweb.com</li>
                         <li>📱 +51 987 654 321</li>
                         <li>📍 Barranca, Lima, Perú</li>
-                        <li>🕒 UTC-5 (Zona horaria de Perú)</li>
                     </ul>
                 </div>
             </div>
@@ -293,6 +328,74 @@
             </div>
         </div>
     </footer>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contacto - UWEB",
+        "description": "Página de contacto de UWEB para consultas sobre desarrollo web profesional",
+        "url": "https://uweb.com/contacto.html",
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "UWEB",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+51-987-654-321",
+                "contactType": "customer service",
+                "email": "info@uweb.com",
+                "availableLanguage": ["Spanish", "English"],
+                "hoursAvailable": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                }
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Barranca",
+                "addressLocality": "Lima",
+                "addressRegion": "Lima",
+                "addressCountry": "PE"
+            }
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "¿Cuánto tiempo toma desarrollar un sitio web?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "El tiempo de desarrollo varía según la complejidad del proyecto. Un sitio web básico puede tomar 2-4 semanas, mientras que proyectos más complejos como e-commerce pueden requerir 6-12 semanas."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Ofrecen mantenimiento después del lanzamiento?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, ofrecemos planes de mantenimiento que incluyen actualizaciones de seguridad, copias de seguridad, soporte técnico y actualizaciones de contenido según tus necesidades."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué información necesitan para empezar?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Necesitamos conocer tus objetivos, público objetivo, funcionalidades deseadas, referencias visuales y cualquier contenido existente. También es útil saber tu presupuesto y timeline."
+                }
+            }
+        ]
+    }
+    </script>
 
     <script src="script.js"></script>
 </body>

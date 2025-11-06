@@ -1,0 +1,34 @@
+﻿# Optimización de Imágenes UWEB
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Servir WebP automáticamente si el navegador lo soporta
+    RewriteCond %{HTTP_ACCEPT} image/webp
+    RewriteCond %{REQUEST_FILENAME} \.(jpe?g|png)$
+    RewriteCond %{REQUEST_FILENAME}.webp -f
+    RewriteRule ^(.+)\.(jpe?g|png)$ $1.$2.webp [T=image/webp,E=accept:1,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Añadir cabecera Vary para cache correcto
+    Header append Vary Accept env=REDIRECT_accept
+</IfModule>
+
+<IfModule mod_mime.c>
+    # Definir tipo MIME para WebP
+    AddType image/webp .webp
+</IfModule>
+
+# Compresión gzip para imágenes SVG
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>

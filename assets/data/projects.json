@@ -4,11 +4,12 @@
       "id": 1,
       "title": "E-commerce Moda Peruana",
       "category": "ecommerce",
-      "image": "assets/images/portfolio/project1.jpg",
+      "image": "assets/images/portfolio/ecommerce-moda-main.svg",
       "gallery": [
-        "assets/images/portfolio/project1-1.jpg",
-        "assets/images/portfolio/project1-2.jpg",
-        "assets/images/portfolio/project1-3.jpg"
+        "assets/images/portfolio/ecommerce-moda-main.svg",
+        "assets/images/portfolio/ecommerce-moda-products.svg",
+        "assets/images/portfolio/ecommerce-moda-cart.svg",
+        "assets/images/portfolio/ecommerce-moda-admin.svg"
       ],
       "technologies": ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
       "duration": "6 semanas",
@@ -22,6 +23,7 @@
         "Optimización SEO"
       ],
       "liveUrl": "https://modaperuana-demo.com",
+      "githubUrl": "https://github.com/uweb/moda-peruana-ecommerce",
       "client": "Moda Peruana SAC",
       "year": 2024,
       "testimonial": {
@@ -34,10 +36,11 @@
       "id": 2,
       "title": "Sistema de Gestión Restaurante",
       "category": "app",
-      "image": "assets/images/portfolio/project2.jpg",
+      "image": "assets/images/portfolio/restaurant-main.svg",
       "gallery": [
-        "assets/images/portfolio/project2-1.jpg",
-        "assets/images/portfolio/project2-2.jpg"
+        "assets/images/portfolio/restaurant-main.svg",
+        "assets/images/portfolio/restaurant-orders.svg",
+        "assets/images/portfolio/restaurant-dashboard.svg"
       ],
       "technologies": ["React", "Node.js", "MongoDB", "Express"],
       "duration": "8 semanas",
@@ -51,6 +54,7 @@
         "Panel administrativo"
       ],
       "liveUrl": "https://restaurant-demo.com",
+      "githubUrl": "https://github.com/uweb/restaurant-management-system",
       "client": "Restaurante El Sabor",
       "year": 2024,
       "testimonial": {
@@ -63,11 +67,12 @@
       "id": 3,
       "title": "Portal Corporativo Inmobiliaria",
       "category": "web",
-      "image": "assets/images/portfolio/project3.jpg",
+      "image": "assets/images/portfolio/inmobiliaria-main.svg",
       "gallery": [
-        "assets/images/portfolio/project3-1.jpg",
-        "assets/images/portfolio/project3-2.jpg",
-        "assets/images/portfolio/project3-3.jpg"
+        "assets/images/portfolio/inmobiliaria-main.svg",
+        "assets/images/portfolio/inmobiliaria-properties.svg",
+        "assets/images/portfolio/inmobiliaria-search.svg",
+        "assets/images/portfolio/inmobiliaria-contact.svg"
       ],
       "technologies": ["HTML5", "CSS3", "JavaScript", "PHP", "Bootstrap"],
       "duration": "4 semanas",
@@ -93,10 +98,12 @@
       "id": 4,
       "title": "Plataforma E-learning",
       "category": "app",
-      "image": "assets/images/portfolio/project4.jpg",
+      "image": "assets/images/portfolio/elearning-main.svg",
       "gallery": [
-        "assets/images/portfolio/project4-1.jpg",
-        "assets/images/portfolio/project4-2.jpg"
+        "assets/images/portfolio/elearning-main.svg",
+        "assets/images/portfolio/elearning-courses.svg",
+        "assets/images/portfolio/elearning-video.svg",
+        "assets/images/portfolio/elearning-progress.svg"
       ],
       "technologies": ["Vue.js", "Laravel", "MySQL", "WebRTC"],
       "duration": "12 semanas",
@@ -110,6 +117,7 @@
         "Biblioteca de recursos"
       ],
       "liveUrl": "https://elearning-demo.com",
+      "githubUrl": "https://github.com/uweb/elearning-platform",
       "client": "Instituto Educativo Digital",
       "year": 2024,
       "testimonial": {
@@ -122,10 +130,11 @@
       "id": 5,
       "title": "Tienda Online Artesanías",
       "category": "ecommerce",
-      "image": "assets/images/portfolio/project5.jpg",
+      "image": "assets/images/portfolio/artesanias-main.svg",
       "gallery": [
-        "assets/images/portfolio/project5-1.jpg",
-        "assets/images/portfolio/project5-2.jpg"
+        "assets/images/portfolio/artesanias-main.svg",
+        "assets/images/portfolio/artesanias-products.svg",
+        "assets/images/portfolio/artesanias-gallery.svg"
       ],
       "technologies": ["WooCommerce", "WordPress", "PHP", "MySQL"],
       "duration": "5 semanas",
@@ -151,10 +160,11 @@
       "id": 6,
       "title": "Portal de Noticias Deportivas",
       "category": "web",
-      "image": "assets/images/portfolio/project6.jpg",
+      "image": "assets/images/portfolio/deportes-main.svg",
       "gallery": [
-        "assets/images/portfolio/project6-1.jpg",
-        "assets/images/portfolio/project6-2.jpg"
+        "assets/images/portfolio/deportes-main.svg",
+        "assets/images/portfolio/deportes-news.svg",
+        "assets/images/portfolio/deportes-scores.svg"
       ],
       "technologies": ["HTML5", "CSS3", "JavaScript", "CMS Custom"],
       "duration": "6 semanas",
@@ -180,11 +190,12 @@
       "id": 7,
       "title": "App de Delivery Comida",
       "category": "app",
-      "image": "assets/images/portfolio/project7.jpg",
+      "image": "assets/images/portfolio/delivery-main.svg",
       "gallery": [
-        "assets/images/portfolio/project7-1.jpg",
-        "assets/images/portfolio/project7-2.jpg",
-        "assets/images/portfolio/project7-3.jpg"
+        "assets/images/portfolio/delivery-main.svg",
+        "assets/images/portfolio/delivery-menu.svg",
+        "assets/images/portfolio/delivery-tracking.svg",
+        "assets/images/portfolio/delivery-orders.svg"
       ],
       "technologies": ["React Native", "Node.js", "MongoDB", "Socket.io"],
       "duration": "10 semanas",
@@ -198,6 +209,7 @@
         "Panel para repartidores"
       ],
       "liveUrl": "https://delivery-demo.com",
+      "githubUrl": "https://github.com/uweb/food-delivery-app",
       "client": "FoodExpress Perú",
       "year": 2024,
       "testimonial": {
@@ -210,10 +222,11 @@
       "id": 8,
       "title": "Sitio Web Clínica Médica",
       "category": "web",
-      "image": "assets/images/portfolio/project8.jpg",
+      "image": "assets/images/portfolio/clinica-main.svg",
       "gallery": [
-        "assets/images/portfolio/project8-1.jpg",
-        "assets/images/portfolio/project8-2.jpg"
+        "assets/images/portfolio/clinica-main.svg",
+        "assets/images/portfolio/clinica-services.svg",
+        "assets/images/portfolio/clinica-appointments.svg"
       ],
       "technologies": ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
       "duration": "7 semanas",
