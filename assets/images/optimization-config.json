@@ -1,0 +1,63 @@
+{
+  "imageOptimization": {
+    "version": "2.0",
+    "lastUpdated": "2025-11-05",
+    "description": "Configuración de optimización para imágenes del sitio UWEB expandido",
+    "formats": {
+      "webp": {
+        "enabled": true,
+        "quality": 85,
+        "description": "Formato moderno con mejor compresión"
+      },
+      "jpg": {
+        "enabled": true,
+        "quality": 80,
+        "progressive": true,
+        "description": "Fallback para navegadores antiguos"
+      },
+      "svg": {
+        "enabled": true,
+        "minify": true,
+        "description": "Vectores optimizados para iconos y gráficos"
+      }
+    },
+    "sizes": {
+      "portfolio": {
+        "maxWidth": 800,
+        "maxHeight": 600,
+        "description": "Tamaño optimizado para galería del portafolio"
+      },
+      "openGraph": {
+        "width": 1200,
+        "height": 630,
+        "description": "Imágenes para compartir en redes sociales"
+      }
+    },
+    "compression": {
+      "level": "high",
+      "stripMetadata": true,
+      "interlace": true,
+      "description": "Configuración de compresión para mejor rendimiento"
+    },
+    "caching": {
+      "maxAge": "1 month",
+      "etag": true,
+      "gzip": true,
+      "description": "Configuración de cache para optimizar carga"
+    },
+    "lazyLoading": {
+      "enabled": true,
+      "threshold": "50px",
+      "placeholder": "blur",
+      "description": "Carga diferida para mejorar rendimiento inicial"
+    },
+    "statistics": {
+      "totalImages": 30,
+      "svgFiles": 29,
+      "jpgFiles": 1,
+      "optimizedFormats": ["webp", "jpg"],
+      "estimatedSavings": "40-60%",
+      "lastOptimized": "2025-11-06"
+    }
+  }
+}

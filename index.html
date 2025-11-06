@@ -3,8 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="UWEB - Servicios profesionales de desarrollo web. Creamos sitios web modernos y funcionales.">
-    <title>UWEB - Desarrollo Web Profesional</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="UWEB - Desarrollo web profesional en Perú. Creamos sitios web modernos, aplicaciones web y e-commerce. Servicios de calidad con garantía y soporte técnico.">
+    <meta name="keywords" content="desarrollo web, diseño web, páginas web, aplicaciones web, e-commerce, SEO, Perú, Lima, Barranca, programación web, sitios web profesionales">
+    <meta name="author" content="UWEB - Desarrollo Web Profesional">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    <meta name="geo.region" content="PE-LIM">
+    <meta name="geo.placename" content="Barranca, Lima, Perú">
+    <meta name="geo.position" content="-10.75;-77.76">
+    <meta name="ICBM" content="-10.75, -77.76">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="UWEB - Desarrollo Web Profesional en Perú">
+    <meta property="og:description" content="Transformamos tus ideas en sitios web modernos y funcionales. Desarrollo web profesional con garantía de calidad y soporte técnico especializado.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uweb.com/">
+    <meta property="og:image" content="https://uweb.com/assets/images/og-image.jpg">
+    <meta property="og:image:alt" content="UWEB - Desarrollo Web Profesional">
+    <meta property="og:site_name" content="UWEB">
+    <meta property="og:locale" content="es_PE">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UWEB - Desarrollo Web Profesional en Perú">
+    <meta name="twitter:description" content="Transformamos tus ideas en sitios web modernos y funcionales. Desarrollo web profesional con garantía de calidad.">
+    <meta name="twitter:image" content="https://uweb.com/assets/images/og-image.jpg">
+    <meta name="twitter:image:alt" content="UWEB - Desarrollo Web Profesional">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="msapplication-TileColor" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="UWEB">
+    
+    <title>UWEB - Desarrollo Web Profesional en Perú | Sitios Web Modernos</title>
+    <link rel="canonical" href="https://uweb.com/">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="assets/data/projects.json" as="fetch" crossorigin="anonymous">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//api.exchangerate-api.com">
+    <link rel="dns-prefetch" href="//maps.googleapis.com">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,7 +60,7 @@
     <header class="header">
         <nav class="nav container">
             <div class="nav__logo">
-                <h1>UWEB</h1>
+                <a href="index.html"><h1>UWEB</h1></a>
             </div>
             <ul class="nav__menu" id="nav-menu">
                 <li class="nav__item">
@@ -201,6 +249,120 @@
             </div>
         </div>
     </footer>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "UWEB",
+        "alternateName": "UWEB - Desarrollo Web Profesional",
+        "url": "https://uweb.com",
+        "logo": "https://uweb.com/assets/images/logo.png",
+        "description": "Empresa de desarrollo web profesional especializada en sitios web modernos, aplicaciones web y e-commerce en Perú.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Barranca",
+            "addressLocality": "Lima",
+            "addressRegion": "Lima",
+            "postalCode": "15169",
+            "addressCountry": "PE"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+51-987-654-321",
+            "contactType": "customer service",
+            "email": "info@uweb.com",
+            "availableLanguage": ["Spanish", "English"]
+        },
+        "sameAs": [
+            "https://www.facebook.com/uweb.dev",
+            "https://www.linkedin.com/company/uweb-dev",
+            "https://github.com/uweb-dev"
+        ],
+        "foundingDate": "2019",
+        "numberOfEmployees": "5-10",
+        "areaServed": {
+            "@type": "Country",
+            "name": "Peru"
+        },
+        "serviceType": [
+            "Web Development",
+            "Web Design",
+            "E-commerce Development",
+            "SEO Services",
+            "Web Maintenance"
+        ],
+        "priceRange": "$500-$10000"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "UWEB - Desarrollo Web Profesional",
+        "url": "https://uweb.com",
+        "description": "Sitio web oficial de UWEB, empresa de desarrollo web profesional en Perú.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "UWEB"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://uweb.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "inLanguage": "es-PE"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Desarrollo Web Profesional",
+        "description": "Servicios completos de desarrollo web incluyendo diseño, programación, SEO y mantenimiento de sitios web.",
+        "provider": {
+            "@type": "Organization",
+            "name": "UWEB"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Peru"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Servicios de Desarrollo Web",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Landing Page / OnePage",
+                        "description": "Desarrollo de páginas web de una sola página optimizadas para conversión"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Sitio Web Multipage",
+                        "description": "Desarrollo de sitios web corporativos con múltiples páginas y CMS"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "E-commerce",
+                        "description": "Desarrollo de tiendas online completas con carrito de compras y pasarela de pagos"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
 
     <script src="script.js"></script>
 </body>

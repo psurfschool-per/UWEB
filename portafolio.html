@@ -3,8 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="UWEB - Portafolio de proyectos. Conoce nuestros trabajos y casos de éxito.">
-    <title>Portafolio - UWEB</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portafolio de UWEB - Casos de éxito en desarrollo web. Proyectos de sitios web, aplicaciones web y e-commerce realizados en Perú. Testimonios reales de clientes satisfechos.">
+    <meta name="keywords" content="portafolio desarrollo web, casos éxito web, proyectos web Perú, ejemplos sitios web, trabajos desarrollo web, referencias web">
+    <meta name="author" content="UWEB - Desarrollo Web Profesional">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Portafolio - UWEB | Casos de Éxito en Desarrollo Web">
+    <meta property="og:description" content="Descubre nuestros proyectos destacados y casos de éxito. Sitios web, aplicaciones y e-commerce desarrollados con calidad profesional.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uweb.com/portafolio.html">
+    <meta property="og:image" content="https://uweb.com/assets/images/og-portafolio.jpg">
+    <meta property="og:image:alt" content="Portafolio de proyectos UWEB">
+    <meta property="og:site_name" content="UWEB">
+    <meta property="og:locale" content="es_PE">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Portafolio - UWEB | Casos de Éxito">
+    <meta name="twitter:description" content="Descubre nuestros proyectos destacados y casos de éxito en desarrollo web profesional.">
+    <meta name="twitter:image" content="https://uweb.com/assets/images/og-portafolio.jpg">
+    
+    <title>Portafolio - UWEB | Casos de Éxito en Desarrollo Web</title>
+    <link rel="canonical" href="https://uweb.com/portafolio.html">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="assets/data/projects.json" as="fetch" crossorigin="anonymous">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -136,6 +170,7 @@
         </div>
     </footer>
 
+    <script src="assets/images/lazy-load-enhanced.js"></script>
     <script src="script.js"></script>
     <script>
         // Cargar y mostrar proyectos del portafolio
@@ -150,7 +185,14 @@
                     projectElement.className = `portfolio-item ${project.category}`;
                     projectElement.innerHTML = `
                         <div class="portfolio-image">
-                            <img src="${project.image}" alt="${project.title}" onerror="this.style.display='none'; this.parentElement.style.background='var(--bg-light)'; this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-light);\\'>Imagen no disponible</div>';">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjEyNSIgcj0iMjAiIGZpbGw9IiM5Q0EzQUYiLz4KPHA+Q2FyZ2FuZG8uLi48L3A+Cjwvc3ZnPg==" 
+                                 data-src="${project.image}" 
+                                 data-webp="${project.image.replace('.jpg', '.webp')}"
+                                 data-avif="${project.image.replace('.jpg', '.avif')}"
+                                 alt="${project.title}" 
+                                 class="lazy-image performance-optimized"
+                                 loading="lazy"
+                                 decoding="async">
                             <div class="portfolio-overlay">
                                 <div class="portfolio-overlay-content">
                                     <h3>Ver Proyecto</h3>
@@ -172,6 +214,26 @@
                 // Configurar filtros
                 setupFilters();
                 
+                // Inicializar lazy loading
+                initLazyLoading();
+                
+                // Trigger custom event for enhanced lazy loading
+                document.dispatchEvent(new CustomEvent('portfolioLoaded'));
+                
+                // Restaurar filtro guardado o usar 'all' por defecto
+                const savedFilter = localStorage.getItem('portfolio_filter') || 'all';
+                const savedFilterBtn = document.querySelector(`[data-filter="${savedFilter}"]`);
+                
+                if (savedFilterBtn) {
+                    // Simular clic en el filtro guardado
+                    setTimeout(() => {
+                        handleFilterChange(savedFilterBtn);
+                    }, 100);
+                } else {
+                    // Inicializar contador de proyectos
+                    updateProjectCount('all');
+                }
+                
             } catch (error) {
                 console.error('Error loading portfolio:', error);
                 document.getElementById('portfolio-grid').innerHTML = '<p>Error al cargar el portafolio</p>';
@@ -189,92 +251,619 @@
         
         function setupFilters() {
             const filterBtns = document.querySelectorAll('.filter-btn');
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
             
-            filterBtns.forEach(btn => {
+            filterBtns.forEach((btn, index) => {
+                // Click handler
                 btn.addEventListener('click', () => {
-                    // Actualizar botón activo
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
+                    handleFilterChange(btn);
+                });
+                
+                // Keyboard navigation
+                btn.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleFilterChange(btn);
+                    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        const direction = e.key === 'ArrowLeft' ? -1 : 1;
+                        const nextIndex = (index + direction + filterBtns.length) % filterBtns.length;
+                        filterBtns[nextIndex].focus();
+                    }
+                });
+                
+                // Accessibility attributes
+                btn.setAttribute('role', 'button');
+                btn.setAttribute('tabindex', '0');
+                btn.setAttribute('aria-pressed', btn.classList.contains('active'));
+            });
+        }
+        
+        function handleFilterChange(activeBtn) {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const filtersContainer = document.querySelector('.portfolio-filters');
+            
+            // Prevenir múltiples clics durante la animación
+            if (filtersContainer.classList.contains('loading')) return;
+            
+            // Actualizar botón activo
+            filterBtns.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-pressed', 'false');
+            });
+            activeBtn.classList.add('active');
+            activeBtn.setAttribute('aria-pressed', 'true');
+            
+            // Añadir estado de carga
+            filtersContainer.classList.add('loading');
+            
+            const filter = activeBtn.dataset.filter;
+            
+            // Guardar filtro seleccionado
+            localStorage.setItem('portfolio_filter', filter);
+            
+            filterProjects(filter);
+            
+            // Remover estado de carga después de la animación
+            setTimeout(() => {
+                filtersContainer.classList.remove('loading');
+            }, 600);
+        }
+        
+        function filterProjects(filter) {
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            const portfolioGrid = document.getElementById('portfolio-grid');
+            
+            // Añadir clase de transición al grid
+            portfolioGrid.style.opacity = '0.7';
+            portfolioGrid.style.transform = 'scale(0.98)';
+            
+            setTimeout(() => {
+                portfolioItems.forEach((item, index) => {
+                    const shouldShow = filter === 'all' || item.classList.contains(filter);
                     
-                    const filter = btn.dataset.filter;
-                    
-                    // Filtrar proyectos
-                    portfolioItems.forEach(item => {
-                        if (filter === 'all' || item.classList.contains(filter)) {
-                            item.style.display = 'block';
-                        } else {
+                    if (shouldShow) {
+                        item.style.display = 'block';
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px) scale(0.9)';
+                        
+                        // Animación escalonada
+                        setTimeout(() => {
+                            item.style.transition = 'all 0.4s ease';
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0) scale(1)';
+                        }, index * 50);
+                    } else {
+                        item.style.transition = 'all 0.3s ease';
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(-20px) scale(0.9)';
+                        
+                        setTimeout(() => {
                             item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+                
+                // Restaurar el grid
+                setTimeout(() => {
+                    portfolioGrid.style.transition = 'all 0.3s ease';
+                    portfolioGrid.style.opacity = '1';
+                    portfolioGrid.style.transform = 'scale(1)';
+                }, 200);
+                
+            }, 100);
+            
+            // Actualizar contador de proyectos
+            updateProjectCount(filter);
+        }
+        
+        function updateProjectCount(filter) {
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            let visibleCount = 0;
+            
+            portfolioItems.forEach(item => {
+                if (filter === 'all' || item.classList.contains(filter)) {
+                    visibleCount++;
+                }
+            });
+            
+            // Actualizar o crear contador
+            let counter = document.querySelector('.portfolio-counter');
+            if (!counter) {
+                counter = document.createElement('div');
+                counter.className = 'portfolio-counter';
+                const filtersContainer = document.querySelector('.portfolio-filters').parentNode;
+                filtersContainer.appendChild(counter);
+            }
+            
+            const totalCount = portfolioItems.length;
+            const filterName = getFilterDisplayName(filter);
+            
+            if (visibleCount === 0) {
+                counter.innerHTML = `
+                    <div style="text-align: center; padding: 2rem; background: white; border-radius: 12px; box-shadow: var(--shadow);">
+                        <div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;">🔍</div>
+                        <h3 style="color: var(--text-color); margin-bottom: 0.5rem;">No se encontraron proyectos</h3>
+                        <p style="color: var(--text-light); margin: 0;">
+                            No hay proyectos disponibles en la categoría <strong>${filterName}</strong>.
+                            <br>Prueba con otra categoría o ve todos los proyectos.
+                        </p>
+                        <button onclick="document.querySelector('[data-filter=\\"all\\"]').click()" 
+                                style="margin-top: 1rem; padding: 0.75rem 1.5rem; background: var(--primary-color); color: white; border: none; border-radius: 8px; cursor: pointer; transition: var(--transition);"
+                                onmouseover="this.style.background='var(--primary-dark)'"
+                                onmouseout="this.style.background='var(--primary-color)'">
+                            Ver todos los proyectos
+                        </button>
+                    </div>
+                `;
+            } else {
+                counter.innerHTML = `
+                    <p style="text-align: center; color: var(--text-light); margin: 0; font-size: 0.95rem;">
+                        Mostrando <strong style="color: var(--primary-color);">${visibleCount}</strong> 
+                        ${visibleCount === 1 ? 'proyecto' : 'proyectos'} 
+                        ${filter !== 'all' ? `de <strong>${filterName}</strong>` : 'en total'}
+                        ${filter !== 'all' ? `<span style="margin-left: 1rem; opacity: 0.7;">(${totalCount} total)</span>` : ''}
+                    </p>
+                `;
+            }
+        }
+        
+        function getFilterDisplayName(filter) {
+            const filterNames = {
+                'all': 'Todos',
+                'web': 'Sitios Web',
+                'app': 'Aplicaciones',
+                'ecommerce': 'E-commerce'
+            };
+            return filterNames[filter] || filter;
+        }
+        
+        // Función para inicializar lazy loading
+        function initLazyLoading() {
+            const lazyImages = document.querySelectorAll('.lazy-image');
+            
+            // Verificar si el navegador soporta Intersection Observer
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            const src = img.getAttribute('data-src');
+                            
+                            if (src) {
+                                // Crear una nueva imagen para precargar
+                                const newImg = new Image();
+                                newImg.onload = () => {
+                                    // Una vez cargada, actualizar el src y añadir clase loaded
+                                    img.src = src;
+                                    img.classList.add('loaded');
+                                    img.removeAttribute('data-src');
+                                };
+                                newImg.onerror = () => {
+                                    // Si falla la carga, mantener placeholder
+                                    img.classList.add('error');
+                                };
+                                newImg.src = src;
+                            }
+                            
+                            observer.unobserve(img);
                         }
                     });
+                }, {
+                    rootMargin: '50px 0px',
+                    threshold: 0.1
                 });
-            });
+                
+                lazyImages.forEach(img => imageObserver.observe(img));
+            } else {
+                // Fallback para navegadores que no soportan Intersection Observer
+                lazyImages.forEach(img => {
+                    const src = img.getAttribute('data-src');
+                    if (src) {
+                        img.src = src;
+                        img.classList.add('loaded');
+                        img.removeAttribute('data-src');
+                    }
+                });
+            }
         }
         
         function openModal(project) {
             const modal = document.getElementById('portfolio-modal');
             const modalBody = document.getElementById('modal-body');
             
+            // Crear galería de imágenes
+            const galleryImages = project.gallery && project.gallery.length > 0 ? project.gallery : [project.image];
+            let currentImageIndex = 0;
+            
             modalBody.innerHTML = `
-                <div style="padding: 2rem;">
-                    <div class="portfolio-category" style="margin-bottom: 1rem;">${getCategoryName(project.category)}</div>
-                    <h2 style="margin-bottom: 1rem; color: var(--text-color);">${project.title}</h2>
-                    <div style="margin-bottom: 2rem;">
-                        <img src="${project.image}" alt="${project.title}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none';">
+                <div class="modal-header">
+                    <div class="portfolio-category">${getCategoryName(project.category)}</div>
+                    <h2 class="modal-title">${project.title}</h2>
+                    <p class="modal-subtitle">${project.client} • ${project.year}</p>
+                </div>
+                
+                <div class="modal-gallery">
+                    <div class="gallery-main">
+                        <img id="modal-main-image" 
+                             src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iMjAiIGZpbGw9IiM5Q0EzQUYiLz4KPHA+Q2FyZ2FuZG8uLi48L3A+Cjwvc3ZnPg=="
+                             data-src="${galleryImages[0]}" 
+                             alt="${project.title}" 
+                             class="lazy-image modal-image"
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xNzUgMTIwSDIyNVYxODBIMTc1VjEyMFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHA+SW1hZ2VuIG5vIGRpc3BvbmlibGU8L3A+Cjwvc3ZnPg==';">
+                        ${galleryImages.length > 1 ? `
+                            <button class="gallery-nav gallery-prev" onclick="changeGalleryImage(-1)" aria-label="Imagen anterior">‹</button>
+                            <button class="gallery-nav gallery-next" onclick="changeGalleryImage(1)" aria-label="Imagen siguiente">›</button>
+                        ` : ''}
                     </div>
-                    <p style="margin-bottom: 2rem; color: var(--text-color); line-height: 1.7;">${project.description}</p>
-                    
-                    <div style="margin-bottom: 2rem;">
-                        <h3 style="margin-bottom: 1rem; color: var(--text-color);">Características:</h3>
-                        <ul style="list-style: none; padding: 0;">
-                            ${project.features.map(feature => `<li style="margin-bottom: 0.5rem; color: var(--text-color);"><span style="color: var(--primary-color);">✓</span> ${feature}</li>`).join('')}
-                        </ul>
-                    </div>
-                    
-                    <div style="margin-bottom: 2rem;">
-                        <h3 style="margin-bottom: 1rem; color: var(--text-color);">Tecnologías:</h3>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                        </div>
-                    </div>
-                    
-                    <div style="margin-bottom: 2rem;">
-                        <p><strong>Duración:</strong> ${project.duration}</p>
-                        <p><strong>Cliente:</strong> ${project.client}</p>
-                        <p><strong>Año:</strong> ${project.year}</p>
-                    </div>
-                    
-                    ${project.testimonial ? `
-                        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
-                            <p style="font-style: italic; margin-bottom: 1rem; color: var(--text-color);">"${project.testimonial.text}"</p>
-                            <p style="font-weight: 600; color: var(--text-color); margin: 0;">- ${project.testimonial.author}, ${project.testimonial.position}</p>
+                    ${galleryImages.length > 1 ? `
+                        <div class="gallery-thumbnails">
+                            ${galleryImages.map((img, index) => `
+                                <img class="gallery-thumb ${index === 0 ? 'active' : ''}" 
+                                     src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA4MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjQwIiBjeT0iMzAiIHI9IjgiIGZpbGw9IiM5Q0EzQUYiLz4KPC9zdmc+"
+                                     data-src="${img}" 
+                                     alt="Vista ${index + 1}" 
+                                     class="lazy-image"
+                                     onclick="setGalleryImage(${index})"
+                                     onerror="this.style.display='none';">
+                            `).join('')}
                         </div>
                     ` : ''}
+                </div>
+                
+                <div class="modal-content-grid">
+                    <div class="modal-main-content">
+                        <div class="project-description">
+                            <h3>Descripción del Proyecto</h3>
+                            <p>${project.description}</p>
+                        </div>
+                        
+                        <div class="project-features">
+                            <h3>Características Principales</h3>
+                            <ul class="features-list">
+                                ${project.features.map(feature => `
+                                    <li class="feature-item">
+                                        <span class="feature-icon">✓</span>
+                                        <span class="feature-text">${feature}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                        
+                        ${project.testimonial ? `
+                            <div class="project-testimonial">
+                                <h3>Testimonio del Cliente</h3>
+                                <blockquote class="testimonial-quote enhanced">
+                                    <div class="testimonial-stars">
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                    </div>
+                                    <p>"${project.testimonial.text}"</p>
+                                    <footer class="testimonial-author">
+                                        <div class="author-info">
+                                            <strong>${project.testimonial.author}</strong>
+                                            <span>${project.testimonial.position}</span>
+                                        </div>
+                                        <div class="testimonial-date">
+                                            <small>Proyecto completado en ${project.year}</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                                <div class="testimonial-metrics">
+                                    <div class="metric">
+                                        <span class="metric-value">100%</span>
+                                        <span class="metric-label">Satisfacción</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-value">${project.duration}</span>
+                                        <span class="metric-label">Duración</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-value">5★</span>
+                                        <span class="metric-label">Calificación</span>
+                                    </div>
+                                </div>
+                            </div>
+                        ` : `
+                            <div class="project-testimonial">
+                                <h3>Proyecto Destacado</h3>
+                                <div class="no-testimonial">
+                                    <p>Este proyecto forma parte de nuestro portafolio de casos de éxito. Cada proyecto es desarrollado con los más altos estándares de calidad y atención al detalle.</p>
+                                    <div class="project-highlights">
+                                        <div class="highlight">
+                                            <span class="highlight-icon">✨</span>
+                                            <span>Desarrollo profesional</span>
+                                        </div>
+                                        <div class="highlight">
+                                            <span class="highlight-icon">🚀</span>
+                                            <span>Entrega a tiempo</span>
+                                        </div>
+                                        <div class="highlight">
+                                            <span class="highlight-icon">💯</span>
+                                            <span>Calidad garantizada</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `}
+                    </div>
                     
-                    <div style="text-align: center;">
-                        <a href="${project.liveUrl}" target="_blank" class="btn btn--primary" style="margin-right: 1rem;">Ver Sitio Web</a>
-                        <a href="contacto.html" class="btn btn--outline">Proyecto Similar</a>
+                    <div class="modal-sidebar">
+                        <div class="project-details">
+                            <h3>Detalles del Proyecto</h3>
+                            <div class="detail-item">
+                                <span class="detail-label">Duración:</span>
+                                <span class="detail-value">${project.duration}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Cliente:</span>
+                                <span class="detail-value">${project.client}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Año:</span>
+                                <span class="detail-value">${project.year}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Categoría:</span>
+                                <span class="detail-value">${getCategoryName(project.category)}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-technologies">
+                            <h3>Tecnologías Utilizadas</h3>
+                            <div class="tech-tags">
+                                ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            </div>
+                        </div>
+                        
+                        <div class="project-actions">
+                            <h3>Acciones</h3>
+                            <div class="action-buttons">
+                                ${project.liveUrl ? `
+                                    <a href="${project.liveUrl}" target="_blank" class="btn btn--primary btn--full" rel="noopener noreferrer">
+                                        <span>🌐</span> Ver Sitio Web
+                                    </a>
+                                ` : ''}
+                                ${project.githubUrl ? `
+                                    <a href="${project.githubUrl}" target="_blank" class="btn btn--outline btn--full" rel="noopener noreferrer">
+                                        <span>💻</span> Ver Código
+                                    </a>
+                                ` : ''}
+                                <a href="contacto.html?servicio=${project.category}" class="btn btn--outline btn--full">
+                                    <span>💬</span> Proyecto Similar
+                                </a>
+                                <button onclick="shareProject('${project.title}', '${project.liveUrl || ''}')" class="btn btn--secondary btn--full">
+                                    <span>📤</span> Compartir Proyecto
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `;
             
+            // Configurar funciones de galería
+            window.currentGalleryImages = galleryImages;
+            window.currentImageIndex = 0;
+            
+            // Mostrar modal con animación
             modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Inicializar lazy loading para imágenes del modal
+            setTimeout(() => {
+                initModalLazyLoading();
+            }, 100);
+            
+            // Enfocar el modal para accesibilidad
+            modal.focus();
+        }
+        
+        // Función para cambiar imagen de la galería
+        window.changeGalleryImage = function(direction) {
+            const images = window.currentGalleryImages;
+            if (!images || images.length <= 1) return;
+            
+            window.currentImageIndex = (window.currentImageIndex + direction + images.length) % images.length;
+            setGalleryImage(window.currentImageIndex);
+        }
+        
+        // Función para establecer imagen específica
+        window.setGalleryImage = function(index) {
+            const images = window.currentGalleryImages;
+            if (!images || index < 0 || index >= images.length) return;
+            
+            window.currentImageIndex = index;
+            
+            const mainImage = document.getElementById('modal-main-image');
+            const thumbnails = document.querySelectorAll('.gallery-thumb');
+            
+            if (mainImage) {
+                mainImage.style.opacity = '0';
+                
+                // Precargar imagen antes de mostrarla
+                const newImg = new Image();
+                newImg.onload = () => {
+                    setTimeout(() => {
+                        mainImage.src = images[index];
+                        mainImage.classList.add('loaded');
+                        mainImage.style.opacity = '1';
+                    }, 150);
+                };
+                newImg.onerror = () => {
+                    setTimeout(() => {
+                        mainImage.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xNzUgMTIwSDIyNVYxODBIMTc1VjEyMFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHA+SW1hZ2VuIG5vIGRpc3BvbmlibGU8L3A+Cjwvc3ZnPg==';
+                        mainImage.style.opacity = '1';
+                    }, 150);
+                };
+                newImg.src = images[index];
+            }
+            
+            thumbnails.forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === index);
+                
+                // Cargar thumbnail si no está cargado
+                if (i === index && thumb.hasAttribute('data-src')) {
+                    const thumbSrc = thumb.getAttribute('data-src');
+                    const thumbImg = new Image();
+                    thumbImg.onload = () => {
+                        thumb.src = thumbSrc;
+                        thumb.classList.add('loaded');
+                        thumb.removeAttribute('data-src');
+                    };
+                    thumbImg.src = thumbSrc;
+                }
+            });
+        }
+        
+        // Función para compartir proyecto
+        window.shareProject = function(title, url) {
+            if (navigator.share) {
+                navigator.share({
+                    title: `Proyecto: ${title} - UWEB`,
+                    text: `Mira este increíble proyecto de desarrollo web: ${title}`,
+                    url: url || window.location.href
+                }).catch(console.error);
+            } else {
+                // Fallback: copiar al portapapeles
+                const shareText = `Mira este increíble proyecto: ${title} - ${url || window.location.href}`;
+                navigator.clipboard.writeText(shareText).then(() => {
+                    alert('¡Enlace copiado al portapapeles!');
+                }).catch(() => {
+                    alert('No se pudo copiar el enlace. Comparte manualmente: ' + shareText);
+                });
+            }
+        }
+        
+        // Función para cerrar modal
+        function closeModal() {
+            const modal = document.getElementById('portfolio-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            
+            // Limpiar variables globales
+            window.currentGalleryImages = null;
+            window.currentImageIndex = 0;
         }
         
         // Cerrar modal
-        document.getElementById('modal-close').addEventListener('click', () => {
-            document.getElementById('portfolio-modal').classList.remove('active');
-        });
+        document.getElementById('modal-close').addEventListener('click', closeModal);
         
         // Cerrar modal al hacer clic fuera
         document.getElementById('portfolio-modal').addEventListener('click', (e) => {
             if (e.target.id === 'portfolio-modal') {
-                document.getElementById('portfolio-modal').classList.remove('active');
+                closeModal();
             }
         });
         
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('portfolio-modal');
+                if (modal.classList.contains('active')) {
+                    closeModal();
+                }
+            }
+        });
+        
+        // Navegación de galería con teclado
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('portfolio-modal');
+            if (!modal.classList.contains('active')) return;
+            
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                changeGalleryImage(-1);
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                changeGalleryImage(1);
+            }
+        });
+        
+        // Función para inicializar lazy loading en el modal
+        function initModalLazyLoading() {
+            const modalImages = document.querySelectorAll('.modal .lazy-image');
+            
+            modalImages.forEach(img => {
+                const src = img.getAttribute('data-src');
+                if (src) {
+                    const newImg = new Image();
+                    newImg.onload = () => {
+                        img.src = src;
+                        img.classList.add('loaded');
+                        img.removeAttribute('data-src');
+                    };
+                    newImg.onerror = () => {
+                        img.classList.add('error');
+                    };
+                    newImg.src = src;
+                }
+            });
+        }
+        
         // Cargar portafolio al cargar la página
         document.addEventListener('DOMContentLoaded', loadPortfolio);
+    </script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Portafolio UWEB",
+        "description": "Colección de proyectos y casos de éxito de UWEB en desarrollo web",
+        "url": "https://uweb.com/portafolio.html",
+        "mainEntity": {
+            "@type": "ItemList",
+            "name": "Proyectos de Desarrollo Web",
+            "description": "Proyectos destacados realizados por UWEB",
+            "numberOfItems": 8,
+            "itemListElement": [
+                {
+                    "@type": "CreativeWork",
+                    "name": "E-commerce Moda Peruana",
+                    "description": "Tienda online completa con carrito de compras y pasarela de pagos",
+                    "creator": {
+                        "@type": "Organization",
+                        "name": "UWEB"
+                    },
+                    "dateCreated": "2024"
+                },
+                {
+                    "@type": "CreativeWork",
+                    "name": "Restaurante Sabores del Norte",
+                    "description": "Sitio web corporativo con sistema de reservas online",
+                    "creator": {
+                        "@type": "Organization",
+                        "name": "UWEB"
+                    },
+                    "dateCreated": "2024"
+                }
+            ]
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "UWEB",
+        "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Portafolio de Desarrollo Web",
+            "description": "Más de 100 proyectos completados exitosamente",
+            "credentialCategory": "Professional Portfolio"
+        },
+        "knowsAbout": [
+            "Web Development",
+            "E-commerce Development",
+            "Responsive Design",
+            "SEO Optimization",
+            "Web Applications"
+        ]
+    }
     </script>
 </body>
 </html>

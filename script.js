@@ -758,6 +758,95 @@ function initTimezone() {
     }
 }
 
+// ===== POLICY PAGES FUNCTIONALITY =====
+function initPolicyPages() {
+    // Automatic date update for policy pages
+    const lastUpdatedElements = document.querySelectorAll('#last-updated');
+    
+    if (lastUpdatedElements.length > 0) {
+        const currentDate = new Date();
+        const formattedDate = new Intl.DateTimeFormat('es-ES', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        }).format(currentDate);
+        
+        lastUpdatedElements.forEach(element => {
+            element.textContent = formattedDate;
+        });
+    }
+    
+    // Smooth scroll for table of contents links
+    const tocLinks = document.querySelectorAll('.policy-toc a[href^="#"]');
+    tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const headerOffset = 100;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Add highlight effect to the target section
+                targetElement.style.backgroundColor = 'rgba(99, 102, 241, 0.05)';
+                targetElement.style.transition = 'background-color 0.3s ease';
+                
+                setTimeout(() => {
+                    targetElement.style.backgroundColor = 'transparent';
+                }, 2000);
+            }
+        });
+    });
+    
+    // Add reading progress indicator for policy pages
+    const policyPage = document.querySelector('.policy-page');
+    if (policyPage) {
+        const progressBar = document.createElement('div');
+        progressBar.style.cssText = `
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            z-index: 1000;
+            transition: width 0.1s ease;
+        `;
+        document.body.appendChild(progressBar);
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            
+            progressBar.style.width = Math.min(scrollPercent, 100) + '%';
+        });
+    }
+    
+    // Cross-reference navigation between policy pages
+    const policyNavigation = document.querySelectorAll('a[href*="politicas/"]');
+    policyNavigation.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Add loading state for better UX
+            const originalText = link.textContent;
+            link.textContent = 'Cargando...';
+            link.style.opacity = '0.7';
+            
+            setTimeout(() => {
+                link.textContent = originalText;
+                link.style.opacity = '1';
+            }, 500);
+        });
+    });
+}
+
 // Inicializar todas las funcionalidades cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
@@ -765,6 +854,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initServicesPage();
     initCurrencyExchange();
     initTimezone();
+    initPolicyPages();
 });
 
 // Agregar estilos CSS adicionales para animaciones
@@ -858,3 +948,322 @@ function initFAQAccordion() {
     });
 }
 
+// ========================================
+// PERFORMANCE OPTIMIZATIONS
+// ========================================
+
+// Enhanced Lazy Loading Implementation
+function initLazyLoading() {
+    // Check if Intersection Observer is supported
+    if ('IntersectionObserver' in window) {
+        const lazyImages = document.querySelectorAll('img[data-src], .lazy-image');
+        
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    
+                    // Handle images with data-src attribute
+                    if (img.hasAttribute('data-src')) {
+                        const src = img.getAttribute('data-src');
+                        const webpSrc = img.getAttribute('data-webp');
+                        
+                        // Check WebP support and use appropriate format
+                        checkWebPSupport().then(supportsWebP => {
+                            const finalSrc = supportsWebP && webpSrc ? webpSrc : src;
+                            
+                            // Preload image
+                            const imageLoader = new Image();
+                            imageLoader.onload = () => {
+                                img.src = finalSrc;
+                                img.classList.add('loaded');
+                                img.removeAttribute('data-src');
+                                img.removeAttribute('data-webp');
+                                
+                                // Trigger custom event for analytics
+                                img.dispatchEvent(new CustomEvent('imageLoaded', {
+                                    detail: { src: finalSrc, webp: supportsWebP && webpSrc }
+                                }));
+                            };
+                            imageLoader.onerror = () => {
+                                img.classList.add('error');
+                                console.warn('Failed to load image:', finalSrc);
+                            };
+                            imageLoader.src = finalSrc;
+                        });
+                    } else {
+                        // Handle lazy-image class
+                        img.classList.add('loaded');
+                    }
+                    
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '100px 0px', // Increased for better UX
+            threshold: 0.1
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback for browsers without Intersection Observer
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        lazyImages.forEach(img => {
+            const src = img.getAttribute('data-src');
+            if (src) {
+                img.src = src;
+                img.classList.add('loaded');
+                img.removeAttribute('data-src');
+            }
+        });
+    }
+}
+
+// WebP Support Detection
+function checkWebPSupport() {
+    return new Promise(resolve => {
+        const webP = new Image();
+        webP.onload = webP.onerror = () => resolve(webP.height === 2);
+        webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+    });
+}
+
+// Preload Critical Resources
+function preloadCriticalResources() {
+    const criticalResources = [
+        { href: 'styles.css', as: 'style' },
+        { href: 'assets/images/og-image.jpg', as: 'image' }
+    ];
+    
+    criticalResources.forEach(resource => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = resource.href;
+        link.as = resource.as;
+        
+        if (resource.as === 'style') {
+            link.onload = () => {
+                link.rel = 'stylesheet';
+            };
+        }
+        
+        document.head.appendChild(link);
+    });
+}
+
+// Debounce Function for Performance
+function debounce(func, wait, immediate) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            timeout = null;
+            if (!immediate) func(...args);
+        };
+        const callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func(...args);
+    };
+}
+
+// Throttle Function for Performance
+function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
+// Optimized Scroll Handler
+const optimizedScrollHandler = throttle(() => {
+    const currentScroll = window.pageYOffset;
+    
+    // Update header shadow
+    if (header) {
+        if (currentScroll > 100) {
+            header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.15)';
+        } else {
+            header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+        }
+    }
+    
+    // Update scroll progress (if element exists)
+    const scrollProgress = document.querySelector('.scroll-progress');
+    if (scrollProgress) {
+        const scrollPercent = (currentScroll / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        scrollProgress.style.width = `${Math.min(scrollPercent, 100)}%`;
+    }
+}, 16); // ~60fps
+
+// Replace the existing scroll listener with optimized version
+window.removeEventListener('scroll', () => {}); // Remove existing if any
+window.addEventListener('scroll', optimizedScrollHandler, { passive: true });
+
+// Optimized Resize Handler
+const optimizedResizeHandler = debounce(() => {
+    // Recalculate layouts that depend on window size
+    const portfolioGrid = document.querySelector('.portfolio-grid');
+    if (portfolioGrid) {
+        // Trigger reflow for masonry-like layouts
+        portfolioGrid.style.display = 'none';
+        portfolioGrid.offsetHeight; // Trigger reflow
+        portfolioGrid.style.display = '';
+    }
+}, 250);
+
+window.addEventListener('resize', optimizedResizeHandler, { passive: true });
+
+// Performance Monitoring
+function initPerformanceMonitoring() {
+    // Monitor Core Web Vitals
+    if ('web-vital' in window) {
+        // This would integrate with web-vitals library if available
+        console.log('Web Vitals monitoring initialized');
+    }
+    
+    // Monitor resource loading
+    if ('PerformanceObserver' in window) {
+        const observer = new PerformanceObserver((list) => {
+            list.getEntries().forEach((entry) => {
+                if (entry.entryType === 'navigation') {
+                    console.log('Page Load Time:', entry.loadEventEnd - entry.loadEventStart);
+                }
+                
+                if (entry.entryType === 'resource' && entry.duration > 1000) {
+                    console.warn('Slow resource:', entry.name, entry.duration + 'ms');
+                }
+            });
+        });
+        
+        observer.observe({ entryTypes: ['navigation', 'resource'] });
+    }
+}
+
+// Critical CSS Loading
+function loadNonCriticalCSS() {
+    const nonCriticalCSS = [
+        // Add paths to non-critical CSS files here
+    ];
+    
+    nonCriticalCSS.forEach(href => {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = href;
+        link.media = 'print';
+        link.onload = () => {
+            link.media = 'all';
+        };
+        document.head.appendChild(link);
+    });
+}
+
+// Service Worker Registration (for caching)
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('SW registered: ', registration);
+                })
+                .catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
+                });
+        });
+    }
+}
+
+// Optimize Form Performance
+function optimizeFormPerformance() {
+    const forms = document.querySelectorAll('form');
+    
+    forms.forEach(form => {
+        // Add input debouncing for real-time validation
+        const inputs = form.querySelectorAll('input, textarea, select');
+        
+        inputs.forEach(input => {
+            const debouncedValidation = debounce(() => {
+                // Trigger validation
+                if (input.checkValidity) {
+                    input.checkValidity();
+                }
+            }, 300);
+            
+            input.addEventListener('input', debouncedValidation);
+        });
+    });
+}
+
+// Memory Management
+function cleanupEventListeners() {
+    // Clean up any global event listeners when page unloads
+    window.addEventListener('beforeunload', () => {
+        // Remove observers
+        if (scrollObserver) {
+            scrollObserver.disconnect();
+        }
+        
+        // Clear timeouts/intervals
+        // Add any cleanup code here
+    });
+}
+
+// Initialize Performance Optimizations
+function initPerformanceOptimizations() {
+    // Run immediately
+    preloadCriticalResources();
+    initLazyLoading();
+    optimizeFormPerformance();
+    cleanupEventListeners();
+    
+    // Run after page load
+    window.addEventListener('load', () => {
+        loadNonCriticalCSS();
+        initPerformanceMonitoring();
+        registerServiceWorker();
+    });
+}
+
+// Critical Performance Initialization
+// Run as early as possible
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPerformanceOptimizations);
+} else {
+    initPerformanceOptimizations();
+}
+
+// Initialize enhanced lazy loading if available
+if (typeof UWEBLazyLoading !== 'undefined') {
+    // Configure for better performance
+    UWEBLazyLoading.config.rootMargin = '150px 0px';
+    UWEBLazyLoading.config.enablePerformanceMonitoring = true;
+    
+    // Re-initialize after dynamic content loads
+    document.addEventListener('portfolioLoaded', () => {
+        setTimeout(() => {
+            UWEBLazyLoading.init();
+        }, 100);
+    });
+}
+
+// Add performance hints to existing functions
+const originalInitContactForm = initContactForm;
+initContactForm = function() {
+    // Add performance wrapper
+    const startTime = performance.now();
+    originalInitContactForm.apply(this, arguments);
+    const endTime = performance.now();
+    console.log(`Contact form initialization took ${endTime - startTime} milliseconds`);
+};
+
+// Optimize existing intersection observer
+if (scrollObserver) {
+    // Add performance improvements to existing observer
+    const originalCallback = scrollObserver.callback;
+    scrollObserver.callback = throttle(originalCallback, 16); // 60fps limit
+}
+
+console.log('🚀 Performance optimizations loaded');

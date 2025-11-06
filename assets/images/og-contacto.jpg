@@ -1,0 +1,40 @@
+<!-- Open Graph image for contact page -->
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="contactGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#contactGradient)"/>
+  
+  <!-- Logo -->
+  <rect x="80" y="80" width="100" height="100" rx="15" fill="white" opacity="0.9"/>
+  <text x="130" y="140" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="28" font-weight="bold">UWEB</text>
+  
+  <!-- Main Content -->
+  <text x="220" y="150" fill="white" font-family="Arial, sans-serif" font-size="42" font-weight="bold">¿Tienes un proyecto en mente?</text>
+  <text x="220" y="200" fill="white" font-family="Arial, sans-serif" font-size="28" opacity="0.9">Contáctanos para una consulta gratuita</text>
+  
+  <!-- Contact Methods -->
+  <rect x="220" y="250" width="400" height="280" rx="20" fill="white" opacity="0.1"/>
+  
+  <text x="250" y="290" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="bold">📧 Email</text>
+  <text x="250" y="320" fill="white" font-family="Arial, sans-serif" font-size="20">info@uweb.com</text>
+  
+  <text x="250" y="370" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="bold">📱 Teléfono</text>
+  <text x="250" y="400" fill="white" font-family="Arial, sans-serif" font-size="20">+51 987 654 321</text>
+  
+  <text x="250" y="450" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="bold">📍 Ubicación</text>
+  <text x="250" y="480" fill="white" font-family="Arial, sans-serif" font-size="20">Barranca, Lima, Perú</text>
+  
+  <!-- CTA -->
+  <rect x="700" y="350" width="300" height="80" rx="40" fill="white"/>
+  <text x="850" y="400" text-anchor="middle" fill="#4facfe" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Iniciar Proyecto</text>
+  
+  <!-- Decorative -->
+  <circle cx="1000" cy="200" r="50" fill="white" opacity="0.1"/>
+  <circle cx="1100" cy="400" r="30" fill="white" opacity="0.1"/>
+</svg>
