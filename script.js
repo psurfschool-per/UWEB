@@ -150,7 +150,7 @@ function initContactForm() {
 
         try {
             // Simular envío del formulario (reemplazar con llamada real al servidor)
-            await simulateFormSubmission(formData);
+            const result = await submitFormToServer(formData);
             
             // Éxito - mensaje personalizado según el servicio
             const serviceType = formData.serviceType;
@@ -319,19 +319,33 @@ function initContactForm() {
         }
     }
 
-    // Simular envío del formulario (reemplazar con implementación real)
-    async function simulateFormSubmission(formData) {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                // Simular éxito/error aleatorio para demostración
-                if (Math.random() > 0.1) { // 90% éxito
-                    console.log('Formulario enviado:', formData);
-                    resolve({ success: true, message: 'Mensaje enviado correctamente' });
-                } else {
-                    reject(new Error('Error simulado del servidor'));
+    // Enviar formulario al servidor PHP
+    async function submitFormToServer(formData) {
+        try {
+            const response = await fetch('procesar_contacto.php', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
                 }
-            }, 2000); // Simular delay de red
-        });
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                return result;
+            } else {
+                throw new Error(result.message || 'Error desconocido del servidor');
+            }
+            
+        } catch (error) {
+            console.error('Error enviando formulario:', error);
+            throw error;
+        }
     }
 }
 

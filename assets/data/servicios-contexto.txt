@@ -1,58 +1,206 @@
-UWEB - INFORMACIÓN DE SERVICIOS Y PRECIOS
+UWEB - INFORMACIÓN DETALLADA DE SERVICIOS Y PRECIOS
 =====================================================
 
-SERVICIOS QUE OFRECEMOS:
-------------------------
-• Estudio
-• Diseño
-• Construcción
-• Despliegue
+🚀 TRANSFORMA TU NEGOCIO CON UNA WEB QUE VENDE
+==============================================
 
-IMPORTANTE SOBRE HOSTING Y DOMINIO:
-----------------------------------
+¿LISTO PARA ALCANZAR MÁS VENTAS Y CONSEGUIR MÁS CLIENTES?
+
+Tu página web no es solo una tarjeta de presentación digital.
+Es tu vendedor 24/7 que nunca descansa, nunca se enferma y siempre está listo para convertir visitantes en clientes.
+
+✨ CUMPLE TUS METAS DE NEGOCIO:
+- Aumenta tus ventas hasta un 300% con una web optimizada
+- Consigue más clientes mientras duermes
+- Posiciónate como líder en tu sector
+- Automatiza tu proceso de captación de leads
+
+⚡ RESULTADOS RÁPIDOS Y EFECTIVOS:
+- Listo en poco tiempo: desde 10 días tienes tu web funcionando
+- Diseño que convierte: cada elemento pensado para generar acción
+- Optimizado para móviles: el 70% de tus clientes navegan desde el celular
+- SEO incluido: aparece en Google cuando te busquen
+
+💰 INVERSIÓN QUE SE PAGA SOLA:
+Con solo 1 cliente nuevo al mes, tu inversión ya está recuperada.
+Imagínate conseguir 10, 20 o 50 clientes nuevos cada mes.
+
+🎯 ACERTADO PARA TU NEGOCIO:
+No importa si vendes productos, servicios o eres profesional independiente.
+Tenemos la solución exacta que tu negocio necesita para crecer.
+
+¡DEJA DE PERDER CLIENTES POR NO TENER PRESENCIA DIGITAL!
+Cada día que pasa sin una web profesional, es dinero que se va a tu competencia.
+
+METODOLOGÍA DE DESARROLLO:
+--------------------------
+• ESTUDIO Y ANÁLISIS
+  - Análisis de requerimientos funcionales y técnicos
+  - Definición de arquitectura de información
+  - Investigación de competencia y benchmarking
+  - Especificación técnica detallada
+
+• DISEÑO UX/UI
+  - Wireframes y mockups interactivos
+  - Prototipado de experiencia de usuario
+  - Diseño responsive para móviles, tablets y desktop
+  - Sistema de diseño y guía de estilos
+
+• DESARROLLO Y CONSTRUCCIÓN
+  - Desarrollo frontend con HTML5, CSS3, JavaScript
+  - Implementación de frameworks modernos (React, Vue, etc.)
+  - Desarrollo backend según requerimientos
+  - Integración de APIs y servicios externos
+  - Optimización SEO y performance
+
+• TESTING Y DESPLIEGUE
+  - Pruebas de funcionalidad y compatibilidad
+  - Testing responsive en múltiples dispositivos
+  - Configuración de hosting y dominio
+  - Implementación de SSL y medidas de seguridad
+  - Capacitación en uso del sistema
+
+INFRAESTRUCTURA Y HOSTING:
+--------------------------
 - Nuestros planes NO incluyen dominio ni hosting
-- Se cotiza según el requerimiento del cliente
-- Opciones disponibles: hosting tradicional o VPS
-- El costo operativo y mantenimiento lo paga el cliente
+- HOSTING TRADICIONAL: Desde S/. 15/mes (cPanel, WordPress hosting)
+- VPS ADMINISTRADO: Desde S/. 45/mes (mayor control y escalabilidad)
+- CDN y optimización de velocidad disponible
+- Certificados SSL incluidos en hosting
+- Backups automáticos diarios
+- Soporte técnico de infraestructura 24/7
 
-PLANES Y PRECIOS:
-================
+PLANES Y PRECIOS DETALLADOS:
+============================
 
 1. PÁGINA ONEPAGE / LANDING PAGE
    ------------------------------
    Precio: Desde S/. 999 (pago único)
-   Entrega: 7 días + 3 días de revisiones básicas
-   Total: 10 días
+   
+   INCLUYE:
+   - Diseño responsive (móvil, tablet, desktop)
+   - Hasta 5 secciones de contenido
+   - Formulario de contacto funcional
+   - Integración con Google Analytics
+   - Optimización SEO básica
+   - Galería de imágenes o portafolio
+   - Botones de redes sociales
+   - Mapa de ubicación (Google Maps)
+   
+   TECNOLOGÍAS:
+   - HTML5, CSS3, JavaScript vanilla
+   - Bootstrap o framework CSS moderno
+   - PHP para formularios de contacto
+   
+   ENTREGA: 10 días (7 días desarrollo + 3 días revisiones)
 
-2. MULTIPAGE
-   ----------
+2. SITIO WEB MULTIPAGE
+   --------------------
    Precio: Desde S/. 2,699
-   Páginas: De 5 a 7 páginas
-   Incluye: Módulo básico de administración de contenido (CMS)
-   Entrega: 14 días total
-   - 7 días: versión funcional
-   - 7 días: mejoras e implementaciones
+   
+   INCLUYE:
+   - De 5 a 7 páginas interconectadas
+   - Panel de administración (CMS básico)
+   - Sistema de gestión de contenido
+   - Blog o sección de noticias
+   - Múltiples formularios de contacto
+   - Galería de imágenes avanzada
+   - Sistema de búsqueda interno
+   - Integración con redes sociales
+   - Optimización SEO avanzada
+   
+   TECNOLOGÍAS:
+   - Frontend: HTML5, CSS3, JavaScript
+   - Backend: PHP/MySQL o Node.js
+   - CMS personalizado o WordPress customizado
+   - Panel administrativo responsive
+   
+   ENTREGA: 14 días (7 días MVP + 7 días refinamiento)
 
 3. DESARROLLOS PERSONALIZADOS
    ---------------------------
-   Tipos:
-   - Web institucionales o corporativas a la medida
-   - Marketplace
-   - Web apps
-   - n8n y otros desarrollos similares
+   Precio: Desde S/. 9,000 (MVP funcional)
    
-   Precio: Se calcula según requerimiento
-   Desde: S/. 9,000 por MVP o demo funcional
+   TIPOS DE PROYECTOS:
+   
+   A) WEB INSTITUCIONALES/CORPORATIVAS
+      - Arquitectura de información compleja
+      - Múltiples niveles de usuario
+      - Integración con sistemas existentes
+      - Dashboard administrativo avanzado
+   
+   B) MARKETPLACE/E-COMMERCE
+      - Sistema de usuarios y vendedores
+      - Pasarela de pagos (Culqi, PayPal, etc.)
+      - Gestión de inventario
+      - Sistema de calificaciones y reviews
+   
+   C) WEB APPLICATIONS
+      - SPA (Single Page Applications)
+      - APIs REST o GraphQL
+      - Autenticación y autorización
+      - Integración con servicios externos
+   
+   D) AUTOMATIZACIÓN Y WORKFLOWS
+      - Integración con n8n, Zapier
+      - APIs personalizadas
+      - Webhooks y notificaciones
+      - Procesamiento de datos automatizado
+   
+   TECNOLOGÍAS DISPONIBLES:
+   - Frontend: React, Vue.js, Angular, Svelte
+   - Backend: Node.js, PHP, Python, .NET
+   - Bases de datos: MySQL, PostgreSQL, MongoDB
+   - Cloud: AWS, Google Cloud, Azure
+   - DevOps: Docker, CI/CD pipelines
+
+SERVICIOS ADICIONALES:
+=====================
+
+MANTENIMIENTO Y SOPORTE:
+- Soporte técnico mensual: S/. 150/mes
+- Actualizaciones de contenido: S/. 50/hora
+- Actualizaciones de seguridad incluidas
+- Monitoreo de uptime y performance
+
+SEO Y MARKETING DIGITAL:
+- Optimización SEO avanzada: S/. 800
+- Configuración Google Ads: S/. 500
+- Integración con herramientas de analytics
+- Configuración de píxeles de seguimiento
+
+CAPACITACIÓN:
+- Sesión de capacitación CMS: S/. 200
+- Manual de usuario personalizado
+- Videos tutoriales incluidos
 
 MODALIDAD DE PAGOS:
 ==================
-- 30% inicial al iniciar proyecto
-- 20% al entregar la primera versión preliminar
-- 50% restante al desplegar y lanzar el proyecto al público
+- 30% inicial (firma de contrato y inicio de proyecto)
+- 20% al entregar prototipo/versión preliminar
+- 30% al entregar versión completa para testing
+- 20% restante al desplegar y lanzar al público
 
-NOTAS ADICIONALES:
-=================
-- Todos los precios están en Soles Peruanos (PEN)
-- Los tiempos de entrega pueden variar según complejidad
-- Se incluyen revisiones básicas en todos los planes
-- Soporte post-lanzamiento disponible por separado
+GARANTÍAS Y POLÍTICAS:
+=====================
+- Garantía de 30 días post-lanzamiento
+- Hasta 3 rondas de revisiones incluidas
+- Código fuente entregado al cliente
+- Documentación técnica completa
+- Transferencia de propiedad intelectual
+
+TIEMPOS DE ENTREGA:
+==================
+- Los tiempos pueden extenderse según:
+  * Complejidad de integraciones externas
+  * Cantidad de revisiones solicitadas
+  * Disponibilidad de contenido del cliente
+  * Requerimientos de testing adicionales
+
+REQUISITOS DEL CLIENTE:
+======================
+- Contenido (textos, imágenes) en formato digital
+- Acceso a cuentas de hosting/dominio si aplica
+- Definición clara de objetivos y público objetivo
+- Disponibilidad para reuniones de seguimiento
+- Feedback oportuno en fases de revisión
