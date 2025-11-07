@@ -5,73 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Portafolio de UWEB - Casos de éxito en desarrollo web. Proyectos de sitios web, aplicaciones web y e-commerce realizados en Perú. Testimonios reales de clientes satisfechos.">
+    <meta name="description" content="Portafolio de tuweb - Casos de éxito en desarrollo web. Proyectos de sitios web, aplicaciones web y e-commerce realizados en Perú. Testimonios reales de clientes satisfechos.">
     <meta name="keywords" content="portafolio desarrollo web, casos éxito web, proyectos web Perú, ejemplos sitios web, trabajos desarrollo web, referencias web">
-    <meta name="author" content="UWEB - Desarrollo Web Profesional">
+    <meta name="author" content="tuweb - Desarrollo Web Profesional">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Spanish">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Portafolio - UWEB | Casos de Éxito en Desarrollo Web">
+    <meta property="og:title" content="Portafolio - tuweb | Casos de Éxito en Desarrollo Web">
     <meta property="og:description" content="Descubre nuestros proyectos destacados y casos de éxito. Sitios web, aplicaciones y e-commerce desarrollados con calidad profesional.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://uweb.com/portafolio.html">
-    <meta property="og:image" content="https://uweb.com/assets/images/og-portafolio.jpg">
-    <meta property="og:image:alt" content="Portafolio de proyectos UWEB">
-    <meta property="og:site_name" content="UWEB">
+    <meta property="og:url" content="https://tuweb.pe/portafolio.html">
+    <meta property="og:image" content="https://tuweb.pe/assets/images/og-portafolio.jpg">
+    <meta property="og:image:alt" content="Portafolio de proyectos tuweb">
+    <meta property="og:site_name" content="tuweb">
     <meta property="og:locale" content="es_PE">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Portafolio - UWEB | Casos de Éxito">
+    <meta name="twitter:title" content="Portafolio - tuweb | Casos de Éxito">
     <meta name="twitter:description" content="Descubre nuestros proyectos destacados y casos de éxito en desarrollo web profesional.">
-    <meta name="twitter:image" content="https://uweb.com/assets/images/og-portafolio.jpg">
+    <meta name="twitter:image" content="https://tuweb.pe/assets/images/og-portafolio.jpg">
     
-    <title>Portafolio - UWEB | Casos de Éxito en Desarrollo Web</title>
-    <link rel="canonical" href="https://uweb.com/portafolio.html">
+    <title>Portafolio - tuweb | Casos de Éxito en Desarrollo Web</title>
+    <link rel="canonical" href="https://tuweb.pe/portafolio.html">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="global.css" as="style">
     <link rel="preload" href="script.js" as="script">
     <link rel="preload" href="assets/data/projects.json" as="fetch" crossorigin="anonymous">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="global.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav container">
-            <div class="nav__logo">
-                <a href="index.html"><h1>UWEB</h1></a>
-            </div>
-            <ul class="nav__menu" id="nav-menu">
-                <li class="nav__item">
-                    <a href="index.html" class="nav__link">Inicio</a>
-                </li>
-                <li class="nav__item">
-                    <a href="servicios.html" class="nav__link">Servicios</a>
-                </li>
-                <li class="nav__item">
-                    <a href="portafolio.html" class="nav__link nav__link--active">Portafolio</a>
-                </li>
-                <li class="nav__item">
-                    <a href="precios.html" class="nav__link">Precios</a>
-                </li>
-                <li class="nav__item">
-                    <a href="contacto.html" class="nav__link">Contacto</a>
-                </li>
-            </ul>
-            <div class="nav__toggle" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
 
     <!-- Portfolio Hero -->
     <section class="page-header">
@@ -127,49 +99,11 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__section">
-                    <h3 class="footer__title">UWEB</h3>
-                    <p class="footer__description">
-                        Desarrollo web profesional. Soluciones digitales a medida.
-                    </p>
-                </div>
-                <div class="footer__section">
-                    <h4 class="footer__subtitle">Enlaces</h4>
-                    <ul class="footer__links">
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="servicios.html">Servicios</a></li>
-                        <li><a href="portafolio.html">Portafolio</a></li>
-                        <li><a href="precios.html">Precios</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer__section">
-                    <h4 class="footer__subtitle">Políticas</h4>
-                    <ul class="footer__links">
-                        <li><a href="politicas/privacidad.html">Política de Privacidad</a></li>
-                        <li><a href="politicas/terminos.html">Términos de Servicio</a></li>
-                        <li><a href="politicas/devoluciones.html">Política de Devoluciones</a></li>
-                    </ul>
-                </div>
-                <div class="footer__section">
-                    <h4 class="footer__subtitle">Contacto</h4>
-                    <ul class="footer__contact">
-                        <li>📧 info@uweb.com</li>
-                        <li>📱 +51 987 654 321</li>
-                        <li>📍 Barranca, Lima, Perú</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer__bottom">
-                <p>&copy; 2024 UWEB. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
 
+    <!-- Component Loader -->
+    <script src="components/load-components.js"></script>
     <script src="assets/images/lazy-load-enhanced.js"></script>
     <script src="script.js"></script>
     <script>
@@ -721,7 +655,7 @@
         window.shareProject = function(title, url) {
             if (navigator.share) {
                 navigator.share({
-                    title: `Proyecto: ${title} - UWEB`,
+                    title: `Proyecto: ${title} - tuweb`,
                     text: `Mira este increíble proyecto de desarrollo web: ${title}`,
                     url: url || window.location.href
                 }).catch(console.error);
@@ -811,13 +745,13 @@
     {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "Portafolio UWEB",
-        "description": "Colección de proyectos y casos de éxito de UWEB en desarrollo web",
-        "url": "https://uweb.com/portafolio.html",
+        "name": "Portafolio tuweb",
+        "description": "Colección de proyectos y casos de éxito de tuweb en desarrollo web",
+        "url": "https://tuweb.pe/portafolio.html",
         "mainEntity": {
             "@type": "ItemList",
             "name": "Proyectos de Desarrollo Web",
-            "description": "Proyectos destacados realizados por UWEB",
+            "description": "Proyectos destacados realizados por tuweb",
             "numberOfItems": 8,
             "itemListElement": [
                 {
@@ -826,7 +760,7 @@
                     "description": "Tienda online completa con carrito de compras y pasarela de pagos",
                     "creator": {
                         "@type": "Organization",
-                        "name": "UWEB"
+                        "name": "tuweb"
                     },
                     "dateCreated": "2024"
                 },
@@ -836,7 +770,7 @@
                     "description": "Sitio web corporativo con sistema de reservas online",
                     "creator": {
                         "@type": "Organization",
-                        "name": "UWEB"
+                        "name": "tuweb"
                     },
                     "dateCreated": "2024"
                 }
@@ -849,7 +783,7 @@
     {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "UWEB",
+        "name": "tuweb",
         "hasCredential": {
             "@type": "EducationalOccupationalCredential",
             "name": "Portafolio de Desarrollo Web",

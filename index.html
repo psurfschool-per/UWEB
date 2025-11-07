@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="UWEB - Desarrollo web profesional en Perú. Creamos sitios web modernos, aplicaciones web y e-commerce. Servicios de calidad con garantía y soporte técnico.">
+    <meta name="description" content="tuweb - Desarrollo web profesional en Perú. Creamos sitios web modernos, aplicaciones web y e-commerce. Servicios de calidad con garantía y soporte técnico.">
     <meta name="keywords" content="desarrollo web, diseño web, páginas web, aplicaciones web, e-commerce, SEO, Perú, Lima, Barranca, programación web, sitios web profesionales">
-    <meta name="author" content="UWEB - Desarrollo Web Profesional">
+    <meta name="author" content="tuweb - Desarrollo Web Profesional">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Spanish">
     <meta name="geo.region" content="PE-LIM">
@@ -16,79 +16,48 @@
     <meta name="ICBM" content="-10.75, -77.76">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="UWEB - Desarrollo Web Profesional en Perú">
+    <meta property="og:title" content="tuweb - Desarrollo Web Profesional en Perú">
     <meta property="og:description" content="Transformamos tus ideas en sitios web modernos y funcionales. Desarrollo web profesional con garantía de calidad y soporte técnico especializado.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://uweb.com/">
-    <meta property="og:image" content="https://uweb.com/assets/images/og-image.jpg">
-    <meta property="og:image:alt" content="UWEB - Desarrollo Web Profesional">
-    <meta property="og:site_name" content="UWEB">
+    <meta property="og:url" content="https://tuweb.pe/">
+    <meta property="og:image" content="https://tuweb.pe/assets/images/og-image.jpg">
+    <meta property="og:image:alt" content="tuweb - Desarrollo Web Profesional">
+    <meta property="og:site_name" content="tuweb">
     <meta property="og:locale" content="es_PE">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="UWEB - Desarrollo Web Profesional en Perú">
+    <meta name="twitter:title" content="tuweb - Desarrollo Web Profesional en Perú">
     <meta name="twitter:description" content="Transformamos tus ideas en sitios web modernos y funcionales. Desarrollo web profesional con garantía de calidad.">
-    <meta name="twitter:image" content="https://uweb.com/assets/images/og-image.jpg">
-    <meta name="twitter:image:alt" content="UWEB - Desarrollo Web Profesional">
+    <meta name="twitter:image" content="https://tuweb.pe/assets/images/og-image.jpg">
+    <meta name="twitter:image:alt" content="tuweb - Desarrollo Web Profesional">
     
     <!-- Additional SEO Meta Tags -->
     <meta name="theme-color" content="#667eea">
     <meta name="msapplication-TileColor" content="#667eea">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="UWEB">
+    <meta name="apple-mobile-web-app-title" content="tuweb">
     
-    <title>UWEB - Desarrollo Web Profesional en Perú | Sitios Web Modernos</title>
-    <link rel="canonical" href="https://uweb.com/">
+    <title>tuweb - Desarrollo Web Profesional en Perú | Sitios Web Modernos</title>
+    <link rel="canonical" href="https://tuweb.pe/">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="global.css" as="style">
     <link rel="preload" href="script.js" as="script">
     <link rel="preload" href="assets/data/projects.json" as="fetch" crossorigin="anonymous">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//api.exchangerate-api.com">
     <link rel="dns-prefetch" href="//maps.googleapis.com">
     
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="global.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav container">
-            <div class="nav__logo">
-                <a href="index.html"><h1>UWEB</h1></a>
-            </div>
-            <ul class="nav__menu" id="nav-menu">
-                <li class="nav__item">
-                    <a href="#inicio" class="nav__link nav__link--active">Inicio</a>
-                </li>
-                <li class="nav__item">
-                    <a href="servicios.html" class="nav__link">Servicios</a>
-                </li>
-                <li class="nav__item">
-                    <a href="portafolio.html" class="nav__link">Portafolio</a>
-                </li>
-                <li class="nav__item">
-                    <a href="precios.html" class="nav__link">Precios</a>
-                </li>
-                <li class="nav__item">
-                    <a href="contacto.html" class="nav__link">Contacto</a>
-                </li>
-            </ul>
-            <div class="nav__cta">
-                <a href="#contacto" class="btn btn--primary btn--small">Cotización Gratis</a>
-            </div>
-            <div class="nav__toggle" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
 
     <!-- Hero Section -->
     <section class="hero" id="inicio">
@@ -317,7 +286,7 @@
             </div>
             <div class="contact__content">
                 <div class="contact__info">
-                    <h3>¿Por qué elegir UWEB?</h3>
+                    <h3>¿Por qué elegir tuweb?</h3>
                     <div class="contact__benefits">
                         <div class="contact__benefit">
                             <span class="benefit__icon">⚡</span>
@@ -392,58 +361,18 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__section">
-                    <h3 class="footer__title">UWEB</h3>
-                    <p class="footer__description">
-                        Desarrollo web profesional. Soluciones digitales a medida.
-                    </p>
-                </div>
-                <div class="footer__section">
-                    <h4 class="footer__subtitle">Enlaces</h4>
-                    <ul class="footer__links">
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="servicios.html">Servicios</a></li>
-                        <li><a href="portafolio.html">Portafolio</a></li>
-                        <li><a href="precios.html">Precios</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer__section">
-                    <h4 class="footer__subtitle">Políticas</h4>
-                    <ul class="footer__links">
-                        <li><a href="politicas/privacidad.html">Política de Privacidad</a></li>
-                        <li><a href="politicas/terminos.html">Términos de Servicio</a></li>
-                        <li><a href="politicas/devoluciones.html">Política de Devoluciones</a></li>
-                    </ul>
-                </div>
-                <div class="footer__section">
-                    <h4 class="footer__subtitle">Contacto</h4>
-                    <ul class="footer__contact">
-                        <li>📧 info@uweb.com</li>
-                        <li>📱 +51 987 654 321</li>
-                        <li>📍 Barranca, Lima, Perú</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer__bottom">
-                <p>&copy; 2024 UWEB. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "UWEB",
-        "alternateName": "UWEB - Desarrollo Web Profesional",
-        "url": "https://uweb.com",
-        "logo": "https://uweb.com/assets/images/logo.png",
+        "name": "tuweb",
+        "alternateName": "tuweb - Desarrollo Web Profesional",
+        "url": "https://tuweb.pe",
+        "logo": "https://tuweb.pe/assets/images/logo.png",
         "description": "Empresa de desarrollo web profesional especializada en sitios web modernos, aplicaciones web y e-commerce en Perú.",
         "address": {
             "@type": "PostalAddress",
@@ -457,13 +386,13 @@
             "@type": "ContactPoint",
             "telephone": "+51-987-654-321",
             "contactType": "customer service",
-            "email": "info@uweb.com",
+            "email": "info@tuweb.pe",
             "availableLanguage": ["Spanish", "English"]
         },
         "sameAs": [
-            "https://www.facebook.com/uweb.dev",
-            "https://www.linkedin.com/company/uweb-dev",
-            "https://github.com/uweb-dev"
+            "https://www.facebook.com/tuweb.pe",
+            "https://www.linkedin.com/company/tuweb-pe",
+            "https://github.com/tuweb-pe"
         ],
         "foundingDate": "2019",
         "numberOfEmployees": "5-10",
@@ -486,16 +415,16 @@
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "UWEB - Desarrollo Web Profesional",
-        "url": "https://uweb.com",
-        "description": "Sitio web oficial de UWEB, empresa de desarrollo web profesional en Perú.",
+        "name": "tuweb - Desarrollo Web Profesional",
+        "url": "https://tuweb.pe",
+        "description": "Sitio web oficial de tuweb, empresa de desarrollo web profesional en Perú.",
         "publisher": {
             "@type": "Organization",
-            "name": "UWEB"
+            "name": "tuweb"
         },
         "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://uweb.com/search?q={search_term_string}",
+            "target": "https://tuweb.pe/search?q={search_term_string}",
             "query-input": "required name=search_term_string"
         },
         "inLanguage": "es-PE"
@@ -510,7 +439,7 @@
         "description": "Servicios completos de desarrollo web incluyendo diseño, programación, SEO y mantenimiento de sitios web.",
         "provider": {
             "@type": "Organization",
-            "name": "UWEB"
+            "name": "tuweb"
         },
         "areaServed": {
             "@type": "Country",
@@ -549,6 +478,8 @@
     }
     </script>
 
+    <!-- Component Loader -->
+    <script src="components/load-components.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

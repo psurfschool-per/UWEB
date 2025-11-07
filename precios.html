@@ -5,71 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Precios de desarrollo web UWEB - Planes desde S/999. OnePage, Multipage y proyectos personalizados. Cotización gratuita, pagos flexibles y garantía de calidad en Perú.">
+    <meta name="description" content="Precios de desarrollo web tuweb - Planes desde S/999. OnePage, Multipage y proyectos personalizados. Cotización gratuita, pagos flexibles y garantía de calidad en Perú.">
     <meta name="keywords" content="precios desarrollo web, costo sitio web, cotización web Perú, planes desarrollo web, precio página web, tarifas programación web">
-    <meta name="author" content="UWEB - Desarrollo Web Profesional">
+    <meta name="author" content="tuweb - Desarrollo Web Profesional">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Spanish">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Precios - UWEB | Planes de Desarrollo Web desde S/999">
+    <meta property="og:title" content="Precios - tuweb | Planes de Desarrollo Web desde S/999">
     <meta property="og:description" content="Planes transparentes de desarrollo web: OnePage desde S/999, Multipage desde S/2,699. Cotización gratuita y pagos flexibles.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://uweb.com/precios.html">
-    <meta property="og:image" content="https://uweb.com/assets/images/og-precios.jpg">
-    <meta property="og:image:alt" content="Planes y precios UWEB">
-    <meta property="og:site_name" content="UWEB">
+    <meta property="og:url" content="https://tuweb.pe/precios.html">
+    <meta property="og:image" content="https://tuweb.pe/assets/images/og-precios.jpg">
+    <meta property="og:image:alt" content="Planes y precios tuweb">
+    <meta property="og:site_name" content="tuweb">
     <meta property="og:locale" content="es_PE">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Precios - UWEB | Desarrollo Web desde S/999">
+    <meta name="twitter:title" content="Precios - tuweb | Desarrollo Web desde S/999">
     <meta name="twitter:description" content="Planes transparentes de desarrollo web con pagos flexibles y garantía de calidad.">
-    <meta name="twitter:image" content="https://uweb.com/assets/images/og-precios.jpg">
+    <meta name="twitter:image" content="https://tuweb.pe/assets/images/og-precios.jpg">
     
-    <title>Precios - UWEB | Planes de Desarrollo Web desde S/999</title>
-    <link rel="canonical" href="https://uweb.com/precios.html">
+    <title>Precios - tuweb | Planes de Desarrollo Web desde S/999</title>
+    <link rel="canonical" href="https://tuweb.pe/precios.html">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="global.css" as="style">
     <link rel="preload" href="script.js" as="script">
     
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="global.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav container">
-            <div class="nav__logo">
-                <a href="index.html"><h1>UWEB</h1></a>
-            </div>
-            <ul class="nav__menu" id="nav-menu">
-                <li class="nav__item">
-                    <a href="index.html" class="nav__link">Inicio</a>
-                </li>
-                <li class="nav__item">
-                    <a href="servicios.html" class="nav__link">Servicios</a>
-                </li>
-                <li class="nav__item">
-                    <a href="portafolio.html" class="nav__link">Portafolio</a>
-                </li>
-                <li class="nav__item">
-                    <a href="precios.html" class="nav__link nav__link--active">Precios</a>
-                </li>
-                <li class="nav__item">
-                    <a href="contacto.html" class="nav__link">Contacto</a>
-                </li>
-            </ul>
-            <div class="nav__toggle" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
 
     <!-- Pricing Hero -->
     <section class="pricing-hero">
@@ -356,59 +328,19 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__section">
-                    <h3 class="footer__title">UWEB</h3>
-                    <p class="footer__description">
-                        Desarrollo web profesional. Soluciones digitales a medida.
-                    </p>
-                </div>
-                <div class="footer__section">
-                    <h4 class="footer__subtitle">Enlaces</h4>
-                    <ul class="footer__links">
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="servicios.html">Servicios</a></li>
-                        <li><a href="portafolio.html">Portafolio</a></li>
-                        <li><a href="precios.html">Precios</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer__section">
-                    <h4 class="footer__subtitle">Políticas</h4>
-                    <ul class="footer__links">
-                        <li><a href="politicas/privacidad.html">Política de Privacidad</a></li>
-                        <li><a href="politicas/terminos.html">Términos de Servicio</a></li>
-                        <li><a href="politicas/devoluciones.html">Política de Devoluciones</a></li>
-                    </ul>
-                </div>
-                <div class="footer__section">
-                    <h4 class="footer__subtitle">Contacto</h4>
-                    <ul class="footer__contact">
-                        <li>📧 info@uweb.com</li>
-                        <li>📱 +51 987 654 321</li>
-                        <li>📍 Barranca, Lima, Perú</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer__bottom">
-                <p>&copy; 2024 UWEB. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Product",
-        "name": "Servicios de Desarrollo Web UWEB",
+        "name": "Servicios de Desarrollo Web tuweb",
         "description": "Planes de desarrollo web profesional con diferentes opciones según las necesidades del cliente",
         "brand": {
             "@type": "Brand",
-            "name": "UWEB"
+            "name": "tuweb"
         },
         "offers": [
             {
@@ -422,7 +354,7 @@
                 "priceValidUntil": "2024-12-31",
                 "seller": {
                     "@type": "Organization",
-                    "name": "UWEB"
+                    "name": "tuweb"
                 },
                 "itemCondition": "https://schema.org/NewCondition",
                 "category": "Web Development Service"
@@ -438,7 +370,7 @@
                 "priceValidUntil": "2024-12-31",
                 "seller": {
                     "@type": "Organization",
-                    "name": "UWEB"
+                    "name": "tuweb"
                 },
                 "itemCondition": "https://schema.org/NewCondition",
                 "category": "Web Development Service"
@@ -454,7 +386,7 @@
                 "priceValidUntil": "2024-12-31",
                 "seller": {
                     "@type": "Organization",
-                    "name": "UWEB"
+                    "name": "tuweb"
                 },
                 "itemCondition": "https://schema.org/NewCondition",
                 "category": "Web Development Service"
@@ -496,6 +428,8 @@
     }
     </script>
 
+    <!-- Component Loader -->
+    <script src="components/load-components.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

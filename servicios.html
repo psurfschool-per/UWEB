@@ -5,72 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Servicios de desarrollo web profesional de UWEB: Estudio, Diseño, Construcción y Despliegue. Sitios web, aplicaciones web, e-commerce y más. Metodología probada en Perú.">
+    <meta name="description" content="Servicios de desarrollo web profesional de tuweb: Estudio, Diseño, Construcción y Despliegue. Sitios web, aplicaciones web, e-commerce y más. Metodología probada en Perú.">
     <meta name="keywords" content="servicios desarrollo web, diseño web, programación web, e-commerce, aplicaciones web, SEO, mantenimiento web, consultoría digital, Perú">
-    <meta name="author" content="UWEB - Desarrollo Web Profesional">
+    <meta name="author" content="tuweb - Desarrollo Web Profesional">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Spanish">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Servicios de Desarrollo Web - UWEB | Metodología Profesional">
+    <meta property="og:title" content="Servicios de Desarrollo Web - tuweb | Metodología Profesional">
     <meta property="og:description" content="Descubre nuestros servicios de desarrollo web: Estudio, Diseño, Construcción y Despliegue. Metodología probada para crear sitios web exitosos.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://uweb.com/servicios.html">
-    <meta property="og:image" content="https://uweb.com/assets/images/og-servicios.jpg">
-    <meta property="og:image:alt" content="Servicios de desarrollo web UWEB">
-    <meta property="og:site_name" content="UWEB">
+    <meta property="og:url" content="https://tuweb.pe/servicios.html">
+    <meta property="og:image" content="https://tuweb.pe/assets/images/og-servicios.jpg">
+    <meta property="og:image:alt" content="Servicios de desarrollo web tuweb">
+    <meta property="og:site_name" content="tuweb">
     <meta property="og:locale" content="es_PE">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Servicios de Desarrollo Web - UWEB">
+    <meta name="twitter:title" content="Servicios de Desarrollo Web - tuweb">
     <meta name="twitter:description" content="Metodología profesional de 4 etapas: Estudio, Diseño, Construcción y Despliegue para crear sitios web exitosos.">
-    <meta name="twitter:image" content="https://uweb.com/assets/images/og-servicios.jpg">
+    <meta name="twitter:image" content="https://tuweb.pe/assets/images/og-servicios.jpg">
     
-    <title>Servicios de Desarrollo Web - UWEB | Metodología Profesional</title>
-    <link rel="canonical" href="https://uweb.com/servicios.html">
+    <title>Servicios de Desarrollo Web - tuweb | Metodología Profesional</title>
+    <link rel="canonical" href="https://tuweb.pe/servicios.html">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="global.css" as="style">
     <link rel="preload" href="script.js" as="script">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="global.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav container">
-            <div class="nav__logo">
-                <a href="index.html"><h1>UWEB</h1></a>
-            </div>
-            <ul class="nav__menu" id="nav-menu">
-                <li class="nav__item">
-                    <a href="index.html" class="nav__link">Inicio</a>
-                </li>
-                <li class="nav__item">
-                    <a href="servicios.html" class="nav__link nav__link--active">Servicios</a>
-                </li>
-                <li class="nav__item">
-                    <a href="portafolio.html" class="nav__link">Portafolio</a>
-                </li>
-                <li class="nav__item">
-                    <a href="precios.html" class="nav__link">Precios</a>
-                </li>
-                <li class="nav__item">
-                    <a href="contacto.html" class="nav__link">Contacto</a>
-                </li>
-            </ul>
-            <div class="nav__toggle" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
 
     <!-- Services Hero -->
     <section class="page-header">
@@ -249,7 +221,7 @@
     <!-- Process Timeline Section -->
     <section class="process-section" style="padding: 80px 0; background: var(--bg-color);">
         <div class="container">
-            <h2 class="section__title">Metodología UWEB</h2>
+            <h2 class="section__title">Metodología tuweb</h2>
             <p class="section__subtitle">4 etapas probadas que garantizan el éxito de tu proyecto digital</p>
             
             <div class="timeline">
@@ -544,60 +516,20 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__section">
-                    <h3 class="footer__title">UWEB</h3>
-                    <p class="footer__description">
-                        Desarrollo web profesional. Soluciones digitales a medida.s digitales a medida.
-                    </p>
-                </div>
-                <div class="footer__section">
-                    <h4 class="footer__subtitle">Enlaces</h4>
-                    <ul class="footer__links">
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="servicios.html">Servicios</a></li>
-                        <li><a href="portafolio.html">Portafolio</a></li>
-                        <li><a href="precios.html">Precios</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer__section">
-                    <h4 class="footer__subtitle">Políticas</h4>
-                    <ul class="footer__links">
-                        <li><a href="politicas/privacidad.html">Política de Privacidad</a></li>
-                        <li><a href="politicas/terminos.html">Términos de Servicio</a></li>
-                        <li><a href="politicas/devoluciones.html">Política de Devoluciones</a></li>
-                    </ul>
-                </div>
-                <div class="footer__section">
-                    <h4 class="footer__subtitle">Contacto</h4>
-                    <ul class="footer__contact">
-                        <li>📧 info@uweb.com</li>
-                        <li>📱 +51 987 654 321</li>
-                        <li>📍 Barranca, Lima, Perú</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer__bottom">
-                <p>&copy; 2024 UWEB. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Servicios de Desarrollo Web UWEB",
+        "name": "Servicios de Desarrollo Web tuweb",
         "description": "Servicios completos de desarrollo web con metodología de 4 etapas: Estudio, Diseño, Construcción y Despliegue",
-        "url": "https://uweb.com/servicios.html",
+        "url": "https://tuweb.pe/servicios.html",
         "provider": {
             "@type": "Organization",
-            "name": "UWEB"
+            "name": "tuweb"
         },
         "serviceType": "Web Development",
         "areaServed": {
@@ -650,7 +582,7 @@
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Tecnologías de Desarrollo Web",
-        "description": "Tecnologías y herramientas utilizadas por UWEB para desarrollo web",
+        "description": "Tecnologías y herramientas utilizadas por tuweb para desarrollo web",
         "itemListElement": [
             {
                 "@type": "ListItem",
@@ -692,6 +624,8 @@
     }
     </script>
 
+    <!-- Component Loader -->
+    <script src="components/load-components.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
